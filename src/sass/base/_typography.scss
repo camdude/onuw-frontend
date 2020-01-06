@@ -1,0 +1,53 @@
+body {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    font-size: $default-font-size;
+    color: $color-black;
+}
+
+.heading-primary {
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 1.25;
+    text-transform: uppercase;
+    color: $color-primary;
+}
+
+.heading-secondary {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: $color-secondary;
+}
+
+.heading-tertiary {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-tertiary-dark;
+}
+
+.paragraph {
+    font-size: $default-font-size;
+    color: $color-grey-dark;
+
+    &:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.link {
+    &:link,
+    &:visited {
+        text-decoration: none;
+        color: $color-tertiary;
+        cursor: pointer;
+    }
+
+    &:hover,
+    &:active {
+        text-decoration: underline;
+        color: $color-secondary-light;
+    }
+}
