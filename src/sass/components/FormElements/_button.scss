@@ -1,0 +1,43 @@
+.button {
+  display: inline-block;
+  margin: 0.2rem;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 1.5rem;
+  background: $color-primary;
+  font-size: $default-font-size;
+  text-decoration: none;
+  color: $color-white;
+  transition: all 0.2s;
+
+  &--inverse {
+    border: 0.2rem solid $color-primary;
+    background: $color-white;
+    color: $color-primary;
+  }
+
+  &:disabled,
+  &:hover:disabled,
+  &:active:disabled {
+    cursor: not-allowed;
+    background: $color-secondary-light;
+    color: $color-grey;
+    box-shadow: none;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: $color-primary;
+    color: $color-white;
+    box-shadow: 0 0.6rem 1rem rgba($color-grey-dark, 0.4);
+    transform: translateY(-2px);
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    box-shadow: 0 0.2rem 0.5rem rgba($color-grey-dark, 0.4);
+    transform: translateY(0);
+  }
+}
