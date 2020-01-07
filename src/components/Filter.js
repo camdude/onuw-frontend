@@ -53,6 +53,7 @@ const Filter = props => {
       value: "all"
     },
     gameType: {
+      all: true,
       original: true,
       daybreak: true
     }
@@ -78,13 +79,25 @@ const Filter = props => {
   };
 
   const onChangeGameTypeHandler = event => {
-    setControls({
-      ...controls,
-      gameType: {
-        ...controls.gameType,
-        [event.target.name]: event.target.checked
-      }
-    });
+    if (event.target.name == "all") {
+      setControls({
+        ...controls,
+        gameType: {
+          all: event.target.checked,
+          original: event.target.checked,
+          daybreak: event.target.checked
+        }
+      });
+    } else {
+      setControls({
+        ...controls,
+        gameType: {
+          ...controls.gameType,
+          all: false,
+          [event.target.name]: event.target.checked
+        }
+      });
+    }
   };
 
   const filter = () => {
@@ -99,33 +112,26 @@ const Filter = props => {
         return set.complexity == controls.complexity.value;
       });
     }
-    filtered = filtered.filter(set => {
-      const games = {
-        original: false,
-        daybreak: false
-      };
-      set.gameTypes.forEach(game => {
-        if (game == "original") {
-          games.original = true;
-        }
-        if (game == "daybreak") {
-          games.daybreak = true;
-        }
+    if (controls.gameType.all != true) {
+      filtered = filtered.filter(set => {
+        const games = {
+          original: false,
+          daybreak: false
+        };
+        set.gameTypes.forEach(game => {
+          if (game == "original") {
+            games.original = true;
+          }
+          if (game == "daybreak") {
+            games.daybreak = true;
+          }
+        });
+        return (
+          games.original == controls.gameType.original &&
+          games.daybreak == controls.gameType.daybreak
+        );
       });
-      return (
-        games.original == controls.gameType.original &&
-        games.daybreak == controls.gameType.daybreak
-      );
-    });
-    // filtered = filtered.filter(set => {
-    //   let exists = false;
-    //   set.gameTypes.forEach(game => {
-    //     if (controls.gameType[game]) {
-    //       exists = true;
-    //     }
-    //   });
-    //   return exists
-    // });
+    }
 
     setFilteredList(filtered);
   };
@@ -160,6 +166,14 @@ const Filter = props => {
         <div>
           <fieldset>
             <legend>Game Type</legend>
+            <input
+              type="checkbox"
+              name="all"
+              checked={controls.gameType.all}
+              onChange={onChangeGameTypeHandler}
+            />
+            All
+            <br />
             <input
               type="checkbox"
               name="original"
