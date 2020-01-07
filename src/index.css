@@ -63,7 +63,7 @@ body {
   font-size: 1.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #178556; }
+  color: #262C5C; }
 
 .paragraph {
   font-size: 1.6rem;
@@ -78,7 +78,7 @@ body {
 
 .link:hover, .link:active {
   text-decoration: underline;
-  color: #546f87; }
+  color: #F8DF01; }
 
 .u-bold-text {
   font-weight: bold !important; }
@@ -103,7 +103,7 @@ body {
     color: #262C5C; }
   .button:disabled, .button:hover:disabled, .button:active:disabled {
     cursor: not-allowed;
-    background: #546f87;
+    background: #F8DF01;
     color: #aaa;
     box-shadow: none;
     transform: translateY(0); }
@@ -277,6 +277,19 @@ body {
     color: #F8DF01; }
   .sidebar__list {
     list-style: none; }
+
+.RoleSetCard {
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  background: #ddd; }
+  .RoleSetCard__title {
+    margin-bottom: .2rem; }
+  .RoleSetCard__stats {
+    display: flex;
+    flex-direction: row; }
+  .RoleSetCard__statElement {
+    margin-right: 1.5rem; }
 
 .row {
   max-width: 114rem;

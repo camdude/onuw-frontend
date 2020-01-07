@@ -1,0 +1,19 @@
+.RoleSetCard {
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  background: $color-grey-light;
+
+  &__title {
+    margin-bottom: .2rem;
+  }
+
+  &__stats {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__statElement {
+    margin-right: 1.5rem;
+  }
+}

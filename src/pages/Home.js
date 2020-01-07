@@ -12,7 +12,7 @@ const Home = () => {
         <Text element="h1">Welcome to the One Night Ultimate Werewolf Role Set Database.</Text>
         <div className="">
           <Text element="h3">Role Sets</Text>
-          <Button>See all role sets</Button>
+          <Button type="link" to="/rolesets">See all role sets</Button>
         </div>
       </main>
     </div>
