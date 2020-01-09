@@ -29,6 +29,8 @@
     &__logo-image {
         display: block;
         height: 100%;
+        border-radius: .5rem;
+
 
         @include respond(tab-port) {
             float: right;

@@ -1,22 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Text from "./UIElements/Text";
 
 const RoleSetCard = props => {
   return (
     <div className="RoleSetCard">
-      <div className="RoleSetCard__title">
-        <Text element="h3">{props.title}</Text>
-      </div>
+      <Link className="heading-tertiary RoleSetCard__title" to={`/set/${props.id}`}>
+        {props.title}
+      </Link>
       <div className="RoleSetCard__stats">
         <div className="RoleSetCard__statElement">
           <Text>Players: {props.players}</Text>
         </div>
         <div className="RoleSetCard__statElement">
-          <Text>Complexity: {props.complexity || '~'}</Text>
+          <Text>Complexity: {props.complexity || "~"}</Text>
         </div>
         <div className="RoleSetCard__statElement">
-          <Text>Rating: {props.rating || '~'}</Text>
+          <Text>Rating: {props.rating || "~"}</Text>
         </div>
       </div>
     </div>

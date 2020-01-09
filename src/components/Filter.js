@@ -1,203 +1,88 @@
 import React, { useState, useEffect } from "react";
 
+import CheckboxGroup from '../components/FilterElements/CheckboxGroup';
 import RoleSetCard from "../components/RoleSetCard";
+import { useFilter } from "../hooks/useFilter";
 
 const Filter = props => {
-  const [data, setData] = useState([
-    {
-      id: "0001",
-      title: "Evil Transformation",
-      players: 3,
-      complexity: "complex",
-      rating: 8,
-      gameTypes: ["original", "daybreak"]
-    },
-    {
-      id: "0002",
-      title: "Cautionary Tale",
-      players: 4,
-      complexity: "moderate",
-      rating: 6,
-      gameTypes: ["original", "daybreak"]
-    },
-    {
-      id: "0003",
-      title: "Total Chaos",
-      players: 5,
-      complexity: "complex",
-      rating: 7,
-      gameTypes: ["original", "daybreak"]
-    },
-    {
-      id: "0004",
-      title: "Classic Werewolf",
-      players: 3,
-      complexity: "simple",
-      rating: 4,
-      gameTypes: ["original"]
-    },
-    {
-      id: "0005",
-      title: "Daybreak",
-      players: 3,
-      complexity: "moderate",
-      rating: 3,
-      gameTypes: ["daybreak"]
-    }
-  ]);
-  const [controls, setControls] = useState({
-    players: {
-      value: 0
-    },
-    complexity: {
-      value: "all"
-    },
-    gameType: {
-      all: true,
-      original: true,
-      daybreak: true
-    }
+  const data = props.data;
+  const [filterState, inputHandler] = useFilter({
+    players: 0,
+    complexity: "all",
+    expansions: ["original"]
   });
-  const [filteredList, setFilteredList] = useState(data);
+  const [filteredList, setFilteredList] = useState(props.data);
 
-  const onChangePlayersHandler = event => {
-    setControls({
-      ...controls,
-      players: {
-        value: event.target.value
-      }
-    });
-  };
-
-  const onChangeComplexityHandler = event => {
-    setControls({
-      ...controls,
-      complexity: {
-        value: event.target.value
-      }
-    });
-  };
-
-  const onChangeGameTypeHandler = event => {
-    if (event.target.name == "all") {
-      setControls({
-        ...controls,
-        gameType: {
-          all: event.target.checked,
-          original: event.target.checked,
-          daybreak: event.target.checked
-        }
-      });
-    } else {
-      setControls({
-        ...controls,
-        gameType: {
-          ...controls.gameType,
-          all: false,
-          [event.target.name]: event.target.checked
-        }
-      });
-    }
+  const onInputChangeHandler = event => {
+    inputHandler(event.target.name, event.target.value);
   };
 
   const filter = () => {
     let filtered = data;
-    if (controls.players.value >= 3) {
+
+    //  Filter out players
+    if (filterState.players >= 3) {
       filtered = data.filter(set => {
-        return set.players == controls.players.value;
-      });
-    }
-    if (controls.complexity.value != "all") {
-      filtered = filtered.filter(set => {
-        return set.complexity == controls.complexity.value;
-      });
-    }
-    if (controls.gameType.all != true) {
-      filtered = filtered.filter(set => {
-        const games = {
-          original: false,
-          daybreak: false
-        };
-        set.gameTypes.forEach(game => {
-          if (game == "original") {
-            games.original = true;
-          }
-          if (game == "daybreak") {
-            games.daybreak = true;
-          }
-        });
-        return (
-          games.original == controls.gameType.original &&
-          games.daybreak == controls.gameType.daybreak
-        );
+        return set.players == filterState.players;
       });
     }
 
+    //  Filter out complexity
+    if (filterState.complexity !== "all") {
+      filtered = filtered.filter(set => {
+        return set.complexity === filterState.complexity;
+      });
+    }
+
+    //  Filter out game type
+    filtered = filtered.filter(set => {
+      return set.expansions.some(r => filterState.expansions.indexOf(r) >= 0);
+    });
+
+    //  Update list
     setFilteredList(filtered);
   };
 
   useEffect(() => {
+    //  Filter list when any settings change
     filter();
-  }, [controls]);
+  }, [filterState]);
 
   return (
     <div className="Filter">
-      <form className="Filter__controls">
+      <div className="Filter__controls">
         <div>
           <input
+            name="players"
             type="number"
-            value={controls.players.value}
-            onChange={onChangePlayersHandler}
+            value={filterState.players}
+            onChange={onInputChangeHandler}
           />
-          <label>Players</label>
+          <label htmlFor="players">Players</label>
         </div>
         <div>
           <select
-            value={controls.complexity.value}
-            onChange={onChangeComplexityHandler}
+            name="complexity"
+            value={filterState.complexity}
+            onChange={onInputChangeHandler}
           >
             <option value="all">All</option>
             <option value="simple">Simple</option>
             <option value="moderate">Moderate</option>
             <option value="complex">Complex</option>
           </select>
-          <label>Complexity</label>
+          <label htmlFor="complexity">Complexity</label>
         </div>
         <div>
-          <fieldset>
-            <legend>Game Type</legend>
-            <input
-              type="checkbox"
-              name="all"
-              checked={controls.gameType.all}
-              onChange={onChangeGameTypeHandler}
-            />
-            All
-            <br />
-            <input
-              type="checkbox"
-              name="original"
-              checked={controls.gameType.original}
-              onChange={onChangeGameTypeHandler}
-            />
-            Original
-            <br />
-            <input
-              type="checkbox"
-              name="daybreak"
-              checked={controls.gameType.daybreak}
-              onChange={onChangeGameTypeHandler}
-            />
-            Daybreak
-            <br />
-          </fieldset>
+          <CheckboxGroup name="expansions" inputs={["original", "daybreak", "vampire", "aliens", "super villians"]} value={filterState.expansions} onInput={inputHandler}/>
         </div>
-      </form>
+      </div>
       <br />
       {filteredList.map((set, index) => {
         return (
           <RoleSetCard
             key={index}
+            id={set.id}
             title={set.title}
             players={set.players}
             complexity={set.complexity}

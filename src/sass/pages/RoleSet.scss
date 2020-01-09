@@ -1,0 +1,22 @@
+.RoleSet {
+
+  &__stats {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+  }
+
+  &__statElement {
+    margin-right: 4rem;
+  }
+}
+
+.RoleList {
+  display: block;
+  list-style: none;
+
+  &__role {
+    display: inline-block;
+    margin: .5rem;
+  }
+}

@@ -1,15 +1,15 @@
 // Colour
 $color-primary: #262C5C;
-$color-primary-light: #262C5C;
-$color-primary-dark: #262C5C;
+$color-primary-light: lighten($color-primary, 8);
+$color-primary-dark: darken($color-primary, 8);
 
 $color-secondary: #F8DF01;
-$color-secondary-light: #F8DF01;
-$color-secondary-dark: #F8DF01;
+$color-secondary-light: lighten($color-secondary, 8);
+$color-secondary-dark: darken($color-secondary, 8);
 
 $color-tertiary: #020300;
-$color-tertiary-light: #020300;
-$color-tertiary-dark: #020300;
+$color-tertiary-light: lighten($color-tertiary, 8);
+$color-tertiary-dark: darken($color-tertiary, 8);
 
 $color-danger: #cc0000;
 $color-warning: #dd820a;

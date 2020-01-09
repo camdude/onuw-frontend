@@ -1,31 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Francois+One|Raleway&display=swap');
+
 body {
-    font-family: "Noto Sans", sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     line-height: 1.6;
     font-size: $default-font-size;
-    color: $color-black;
+    color: $color-grey-dark;
+}
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+    font-family: "Francois One", sans-serif;
+    font-weight: 700;
+
 }
 
 .heading-primary {
     font-size: 4rem;
-    font-weight: 400;
     line-height: 1.25;
-    text-transform: uppercase;
-    color: $color-primary;
+    text-transform: capitalize;
+    color: $color-primary-light;
 }
 
 .heading-secondary {
     font-size: 3rem;
-    font-weight: 700;
     text-transform: capitalize;
-    color: $color-secondary;
+    color: $color-secondary-dark;
 }
 
 .heading-tertiary {
     font-size: 1.8rem;
-    font-weight: 700;
     text-transform: uppercase;
-    color: $color-primary;
+    color: $color-primary-dark;
 }
 
 .paragraph {

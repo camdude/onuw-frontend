@@ -19,7 +19,7 @@ const NavBar = props => {
         </button>
       </div>
       <Link to={props.home} className="navbar__logo">
-        {/* <img className="navbar__logo-image" src={props.logo} alt="Logo" /> */}
+        <img className="navbar__logo-image" src={props.logo} alt="Logo" />
       </Link>
       <Navigation>{props.children}</Navigation>
       <Sidebar open={sidebarOpen} clicked={toggleSidebar} logo={props.logo}>

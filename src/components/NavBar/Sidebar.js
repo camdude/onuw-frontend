@@ -10,7 +10,7 @@ const sidebar = props => {
     <div className="sidebar">
       <nav className={navClasses}>
         <div className="sidebar__logo">
-          {/* <img className="sidebar__logo-image" src={props.logo} alt="Logo" /> */}
+          <img className="sidebar__logo-image" src={props.logo} alt="Logo" />
         </div>
         <div className="sidebar__title">TWBC</div>
         <ul className="sidebar__list" onClick={props.clicked}>

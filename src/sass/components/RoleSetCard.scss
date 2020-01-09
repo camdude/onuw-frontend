@@ -6,6 +6,12 @@
 
   &__title {
     margin-bottom: .2rem;
+    text-decoration: none;
+
+
+    &:hover {
+      color: $color-secondary-dark;
+    }
   }
 
   &__stats {

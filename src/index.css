@@ -15,6 +15,7 @@ $breakpoint argument choices:
 
 ORDER: Base + typography > general layout + grid > page layout > components
 ***/
+@import url("https://fonts.googleapis.com/css?family=Francois+One|Raleway&display=swap");
 *,
 *::after,
 *::before {
@@ -40,30 +41,33 @@ body {
       padding: 2rem 0; } }
 
 body {
-  font-family: "Noto Sans", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 400;
   line-height: 1.6;
   font-size: 1.6rem;
-  color: #000; }
+  color: #333; }
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-family: "Francois One", sans-serif;
+  font-weight: 700; }
 
 .heading-primary {
   font-size: 4rem;
-  font-weight: 400;
   line-height: 1.25;
-  text-transform: uppercase;
-  color: #262C5C; }
+  text-transform: capitalize;
+  color: #323a79; }
 
 .heading-secondary {
   font-size: 3rem;
-  font-weight: 700;
   text-transform: capitalize;
-  color: #F8DF01; }
+  color: #cfba01; }
 
 .heading-tertiary {
   font-size: 1.8rem;
-  font-weight: 700;
   text-transform: uppercase;
-  color: #262C5C; }
+  color: #1a1e3f; }
 
 .paragraph {
   font-size: 1.6rem;
@@ -78,7 +82,7 @@ body {
 
 .link:hover, .link:active {
   text-decoration: underline;
-  color: #F8DF01; }
+  color: #fee824; }
 
 .u-bold-text {
   font-weight: bold !important; }
@@ -103,7 +107,7 @@ body {
     color: #262C5C; }
   .button:disabled, .button:hover:disabled, .button:active:disabled {
     cursor: not-allowed;
-    background: #F8DF01;
+    background: #fee824;
     color: #aaa;
     box-shadow: none;
     transform: translateY(0); }
@@ -200,7 +204,8 @@ body {
     height: 3.7rem; }
   .navbar__logo-image {
     display: block;
-    height: 100%; }
+    height: 100%;
+    border-radius: .5rem; }
     @media (max-width: 56.25em) {
       .navbar__logo-image {
         float: right; } }
@@ -265,6 +270,7 @@ body {
     height: 6rem;
     font-size: 2.6rem; }
   .sidebar__logo-image {
+    border-radius: .5rem;
     display: block;
     margin: 0 auto;
     height: 100%; }
@@ -278,13 +284,21 @@ body {
   .sidebar__list {
     list-style: none; }
 
+.RoleCard {
+  display: inline-block; }
+  .RoleCard__img {
+    width: 10rem; }
+
 .RoleSetCard {
   margin-bottom: 2rem;
   border-radius: 1rem;
   padding: 1rem 2rem;
   background: #ddd; }
   .RoleSetCard__title {
-    margin-bottom: .2rem; }
+    margin-bottom: .2rem;
+    text-decoration: none; }
+    .RoleSetCard__title:hover {
+      color: #cfba01; }
   .RoleSetCard__stats {
     display: flex;
     flex-direction: row; }
@@ -329,3 +343,18 @@ body {
     width: calc( (2 * (100% - 3 * 6rem) / 4) + 6rem); }
   .row .col-3-of-4 {
     width: calc( (3 * (100% - 3 * 6rem) / 4) + (2 * 6rem)); }
+
+.RoleSet__stats {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem; }
+
+.RoleSet__statElement {
+  margin-right: 4rem; }
+
+.RoleList {
+  display: block;
+  list-style: none; }
+  .RoleList__role {
+    display: inline-block;
+    margin: .5rem; }
