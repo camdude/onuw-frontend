@@ -104,7 +104,7 @@ const RoleSet = props => {
       expansions: ["original"],
       desc:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
-      roles: ["werewolf", "werewolf", "seer", "robber", "troublemaker", "vilager"]
+      roles: ["werewolf", "werewolf", "seer", "robber", "troublemaker", "villager"]
     },
     {
       id: "0007",
@@ -115,7 +115,7 @@ const RoleSet = props => {
       expansions: ["original"],
       desc:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
-      roles: ["werewolf", "werewolf", "seer", "robber", "troublemaker", "vilager", "villager"]
+      roles: ["werewolf", "werewolf", "seer", "robber", "troublemaker", "villager", "villager"]
     },
     {
       id: "0008",
@@ -126,7 +126,7 @@ const RoleSet = props => {
       expansions: ["original"],
       desc:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
-      roles: ["werewolf", "werewolf", "seer", "robber", "troublemaker", "vilager", "villager", "villager"]
+      roles: ["werewolf", "werewolf", "seer", "robber", "troublemaker", "villager", "villager", "villager"]
     }
   ]);
   const id = props.match.params.sid;
