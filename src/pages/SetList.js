@@ -40,11 +40,35 @@ const SetList = () => {
     },
     {
       id: "0005",
-      title: "Daybreak",
+      title: "One Night Ultimate Daybreak",
       players: 3,
       complexity: "moderate",
       rating: 3,
       expansions: ["daybreak"]
+    },
+    {
+      id: "0006",
+      title: "One Night Ultimate Werewolf (3 Players)",
+      players: 3,
+      complexity: "simple",
+      rating: 4,
+      expansions: ["original"]
+    },
+    {
+      id: "0007",
+      title: "One Night Ultimate Werewolf (4 Players)",
+      players: 4,
+      complexity: "simple",
+      rating: 4,
+      expansions: ["original"]
+    },
+    {
+      id: "0008",
+      title: "One Night Ultimate Werewolf (5 Players)",
+      players: 5,
+      complexity: "simple",
+      rating: 4,
+      expansions: ["original"]
     }
   ]);
 

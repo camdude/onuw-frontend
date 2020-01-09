@@ -14,7 +14,7 @@ const RoleSet = props => {
       players: 3,
       complexity: "complex",
       rating: 8,
-      gameTypes: ["original", "daybreak"],
+      expansions: ["original", "daybreak"],
       desc:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
       roles: [
@@ -32,7 +32,7 @@ const RoleSet = props => {
       players: 4,
       complexity: "moderate",
       rating: 6,
-      gameTypes: ["original", "daybreak"],
+      expansions: ["original", "daybreak"],
       desc:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
       roles: [
@@ -51,7 +51,7 @@ const RoleSet = props => {
       players: 5,
       complexity: "complex",
       rating: 7,
-      gameTypes: ["original", "daybreak"],
+      expansions: ["original", "daybreak"],
       desc:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
       roles: [
@@ -72,27 +72,61 @@ const RoleSet = props => {
       players: 3,
       complexity: "simple",
       rating: 4,
-      gameTypes: ["original"],
+      expansions: ["original"],
       desc:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
-      roles: ["werewolf", "minion", "robber", "rroublemaker", "drunk", "tanner"]
+      roles: ["werewolf", "minion", "robber", "troublemaker", "drunk", "tanner"]
     },
     {
       id: "0005",
-      title: "Daybreak",
+      title: "One Night Ultimate Daybreak",
       players: 3,
       complexity: "moderate",
       rating: 3,
-      gameTypes: ["daybreak"],
+      expansions: ["daybreak"],
       desc:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
       roles: [
         "alpha_wolf",
         "mystic_wolf",
         "apprentice_seer",
-        "paranormal_investigator",
-        "witch"
+        "witch",
+        "village_idiot",
+        "revealer"
       ]
+    },
+    {
+      id: "0006",
+      title: "One Night Ultimate Werewolf (3 Players)",
+      players: 3,
+      complexity: "simple",
+      rating: 4,
+      expansions: ["original"],
+      desc:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
+      roles: ["werewolf", "werewolf", "seer", "robber", "troublemaker", "vilager"]
+    },
+    {
+      id: "0007",
+      title: "One Night Ultimate Werewolf (4 Players)",
+      players: 4,
+      complexity: "simple",
+      rating: 4,
+      expansions: ["original"],
+      desc:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
+      roles: ["werewolf", "werewolf", "seer", "robber", "troublemaker", "vilager", "villager"]
+    },
+    {
+      id: "0008",
+      title: "One Night Ultimate Werewolf (5 Players)",
+      players: 5,
+      complexity: "simple",
+      rating: 4,
+      expansions: ["original"],
+      desc:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
+      roles: ["werewolf", "werewolf", "seer", "robber", "troublemaker", "vilager", "villager", "villager"]
     }
   ]);
   const id = props.match.params.sid;
@@ -121,7 +155,7 @@ const RoleSet = props => {
           <p className="RoleSet__statElement">Rating: {role.rating}</p>
         </div>
 
-        <Text>Expansions: {role.gameTypes.join(", ")}</Text>
+        <Text>Expansions: {role.expansions.join(", ")}</Text>
         <Text>Description: {role.desc}</Text>
         <Text>Cards:</Text>
         <ul className="RoleList">

@@ -18,15 +18,6 @@ const Home = () => {
             See all role sets
           </Button>
         </div>
-        <div className="">
-          <br />
-          <br />
-          <br />
-          <Text element="h1">Title</Text>
-          <Text element="h2">Title</Text>
-          <Text element="h3">Title</Text>
-          <Text element="paragraph">Title</Text>
-        </div>
       </main>
     </div>
   );
