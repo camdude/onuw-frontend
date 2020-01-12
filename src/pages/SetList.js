@@ -69,6 +69,14 @@ const SetList = () => {
       complexity: "simple",
       rating: 4,
       expansions: ["original"]
+    },
+    {
+      id: "0008",
+      title: "One Night Ultimate Vampire",
+      players: 5,
+      complexity: "simple",
+      rating: 4,
+      expansions: ["vampire"]
     }
   ]);
 

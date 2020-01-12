@@ -18,8 +18,8 @@ const arraysEqual = (a, b) => {
   return true;
 };
 
-const arrayIncludes = (a, b) => {
-  return a.some(r => b.indexOf(r) >= 0);
+const contains = (a, b) => {
+  return b.every(val => a.includes(val));
 };
 
 const Filter = props => {
@@ -58,12 +58,8 @@ const Filter = props => {
     }
 
     //  Filter out game type
-    //  TODO: This does not currently factor in when multiple are selected.
     filtered = filtered.filter(set => {
-      return (
-        arraysEqual(set.expansions, filterState.expansions) &&
-        set.expansions.some(r => filterState.expansions.indexOf(r) >= 0)
-      );
+      return set.expansions.every(val => filterState.expansions.includes(val));
     });
 
     //  Update list
