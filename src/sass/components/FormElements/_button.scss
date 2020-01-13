@@ -20,7 +20,7 @@
   &:hover:disabled,
   &:active:disabled {
     cursor: not-allowed;
-    background: $color-secondary-light;
+    background: $color-grey-light;
     color: $color-grey;
     box-shadow: none;
     transform: translateY(0);

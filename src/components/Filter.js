@@ -4,24 +4,6 @@ import CheckboxGroup from "../components/FilterElements/CheckboxGroup";
 import RoleSetCard from "../components/RoleSetCard";
 import { useFilter } from "../hooks/useFilter";
 
-const arraysEqual = (a, b) => {
-  if (a === b) return true;
-  if (a == null || b == null) return false;
-  if (a.length != b.length) return false;
-
-  a.sort();
-  b.sort();
-
-  for (var i = 0; i < a.length; ++i) {
-    if (a[i] !== b[i]) return false;
-  }
-  return true;
-};
-
-const contains = (a, b) => {
-  return b.every(val => a.includes(val));
-};
-
 const Filter = props => {
   const data = props.data;
   const [filterState, inputHandler] = useFilter({

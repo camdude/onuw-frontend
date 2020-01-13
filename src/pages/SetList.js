@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Navigation from "../layouts/Navigation";
 import Text from "../components/UIElements/Text";
+import Button from "../components/FormElements/Button";
 import Filter from "../components/Filter";
 
 const SetList = () => {
@@ -69,14 +70,6 @@ const SetList = () => {
       complexity: "simple",
       rating: 4,
       expansions: ["original"]
-    },
-    {
-      id: "0008",
-      title: "One Night Ultimate Vampire",
-      players: 5,
-      complexity: "simple",
-      rating: 4,
-      expansions: ["vampire"]
     }
   ]);
 
@@ -85,6 +78,7 @@ const SetList = () => {
       <Navigation />
       <main className="main-body">
         <Text element="h2">Role Sets</Text>
+        <Button to="/rolesets/add">Add Role Set</Button>
         <Filter data={data} />
       </main>
     </div>
