@@ -17,18 +17,21 @@ const CheckboxGroup = props => {
 
   return (
     <fieldset className="CheckboxGroup">
-      <legend>Game Type</legend>
+      <legend>Expansions</legend>
       {props.inputs.map(i => {
         return (
-          <div key={i}>
+          <div key={i} className="form-group">
             <input
+              // className="form-group__input"
+              id={i}
               type="checkbox"
               name={i}
               checked={groupState.includes(i)}
               onChange={changeHandler}
             />
-            <label htmlFor={i}>{i}</label>
-            <br />
+            <label className="form-group__label" htmlFor={i}>
+              {i}
+            </label>
           </div>
         );
       })}

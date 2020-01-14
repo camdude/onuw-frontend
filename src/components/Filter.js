@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import CheckboxGroup from "../components/FilterElements/CheckboxGroup";
 import RoleSetCard from "../components/RoleSetCard";
 import { useFilter } from "../hooks/useFilter";
+import Input from "./FormElements/Input";
 
 const Filter = props => {
   const data = props.data;
@@ -56,17 +57,23 @@ const Filter = props => {
   return (
     <div className="Filter">
       <div className="Filter__controls">
-        <div>
+        <div className="form-group">
           <input
+            className="form-group__input"
             name="players"
             type="number"
             value={filterState.players}
             onChange={onInputChangeHandler}
           />
-          <label htmlFor="players">Players</label>
+          <div className="form-group__details">
+            <label className="form-group__label" htmlFor={props.id}>
+              Players
+            </label>
+          </div>
         </div>
-        <div>
+        <div className="form-group">
           <select
+            className="form-group__input"
             name="complexity"
             value={filterState.complexity}
             onChange={onInputChangeHandler}
@@ -76,8 +83,13 @@ const Filter = props => {
             <option value="moderate">Moderate</option>
             <option value="complex">Complex</option>
           </select>
-          <label htmlFor="complexity">Complexity</label>
+          <div className="form-group__details">
+            <label className="form-group__label" htmlFor={props.id}>
+              Complexity
+            </label>
+          </div>
         </div>
+
         <div>
           <CheckboxGroup
             name="expansions"
