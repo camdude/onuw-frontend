@@ -96,8 +96,8 @@ const Filter = props => {
             inputs={[
               "original",
               "daybreak",
+              "alien",
               "vampire",
-              "aliens",
               "super villians"
             ]}
             value={filterState.expansions}

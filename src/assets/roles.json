@@ -1,0 +1,98 @@
+{
+  "rolesets": [
+    {
+      "expansions": ["original", "daybreak"],
+      "roles": [
+        "doppelganger",
+        "alpha_wolf",
+        "mystic_wolf",
+        "minion",
+        "robber",
+        "witch"
+      ],
+      "_id": "5e1c5124cc8997a2009d499c",
+      "title": "Evil Transformation",
+      "players": "3",
+      "complexity": "complex",
+      "rating": 8,
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
+      "id": "5e1c5124cc8997a2009d499c"
+    },
+    {
+      "expansions": ["original", "daybreak"],
+      "roles": [
+        "werewolf",
+        "werewolf",
+        "seer",
+        "apprentice_seer",
+        "revealer",
+        "hunter",
+        "bodyguard"
+      ],
+      "_id": "5e1c52a61c9d440000c53827",
+      "title": "Cautionary Tale",
+      "players": "4",
+      "complexity": "moderate",
+      "rating": 6,
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
+      "id": "5e1c52a61c9d440000c53827"
+    },
+    {
+      "expansions": ["original", "daybreak"],
+      "roles": [
+        "doppelganger",
+        "werewolf",
+        "alpha_wolf",
+        "mystic_wolf",
+        "robber",
+        "witch",
+        "troublemaker",
+        "village_idiot",
+        "curator"
+      ],
+      "_id": "5e1c53911c9d440000c53829",
+      "title": "Total Chaos",
+      "players": "5",
+      "complexity": "complex",
+      "rating": 7,
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
+      "id": "5e1c53911c9d440000c53829"
+    },
+    {
+      "expansions": ["original"],
+      "roles": [
+        "werewolf",
+        "minion",
+        "robber",
+        "troublemaker",
+        "drunk",
+        "tanner"
+      ],
+      "_id": "5e1c53f41c9d440000c5382a",
+      "title": "Classic Werewolf",
+      "players": "3",
+      "complexity": "simple",
+      "rating": 4,
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
+      "id": "5e1c53f41c9d440000c5382a"
+    },
+    {
+      "expansions": ["daybreak"],
+      "roles": [
+        "alpha_wolf",
+        "mystic_wolf",
+        "apprentice_seer",
+        "witch",
+        "village_idiot",
+        "revealer"
+      ],
+      "_id": "5e1c54381c9d440000c5382b",
+      "title": "One Night Ultimate Daybreak",
+      "players": "3",
+      "complexity": "moderate",
+      "rating": 3,
+      "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non at vel accusamus delectus quaerat ex similique quam? Quisquam corporis natus quis placeat, aut dolore officiis, enim, recusandae sed harum aliquid.",
+      "id": "5e1c54381c9d440000c5382b"
+    }
+  ]
+}
