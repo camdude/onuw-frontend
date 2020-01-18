@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import Button from "../FormElements/Button";
-import Text from "../UIElements/Text";
 
 const cards = [
   "alien",

@@ -17,20 +17,20 @@ const SetCreator = props => {
     event.preventDefault();
     setRolesetState([...rolesetState, "alien"]);
     console.log(rolesetState);
-
   };
 
   const onCardChangedHandler = event => {
-    const newRoleset = [...rolesetState];
-    newRoleset[event.target.id] = event.target.value;
-    setRolesetState(newRoleset);
+    const newRolesetState = [...rolesetState];
+    newRolesetState[event.target.id] = event.target.value;
+    console.log(newRolesetState);
+    setRolesetState(newRolesetState);
     console.log(rolesetState);
   };
 
   const onRemoveCardHandler = index => {
-    setRolesetState(rolesetState.splice(index));
-    console.log(rolesetState);
-
+    const newRolesetState = [...rolesetState];
+    newRolesetState.splice(index, 1)
+    setRolesetState(newRolesetState);
   };
 
   return (
