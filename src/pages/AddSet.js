@@ -15,15 +15,31 @@ const AddSet = () => {
       value: "",
       isValid: false
     },
-    compexity: {
+    complexity: {
       value: "",
       isValid: false
     },
     desc: {
       value: "",
-      isValid: false
+      isValid: true
+    },
+    cards: {
+      value: [
+        "werewolf",
+        "minion",
+        "robber",
+        "troublemaker",
+        "drunk",
+        "tanner"
+      ],
+      isValid: true
     }
   });
+
+  const onRolesetSubmit = event => {
+    event.preventDefault();
+    console.log(formState);
+  };
 
   return (
     <div className="AddSet">
@@ -31,12 +47,13 @@ const AddSet = () => {
       <main className="main-body">
         <Text element="h2">New Role Set</Text>
         <form>
-        <Text element="h3">Set Details</Text>
+          <Text element="h3">Details</Text>
           <Input
             id="title"
             type="text"
             placeholder="Role Set Title"
             label="Role Set Title"
+            value={formState.title}
             onInput={inputHandler}
             rules={[RULE_VALIDATOR_REQUIRED]}
             errorMsg="Please enter a title."
@@ -47,6 +64,7 @@ const AddSet = () => {
             label="Complexity"
             options={["simple", "moderate", "complex"]}
             initialValid={true}
+            value={formState.complexity}
             onInput={inputHandler}
             rules={[RULE_VALIDATOR_REQUIRED]}
           />
@@ -55,11 +73,17 @@ const AddSet = () => {
             element="textarea"
             placeholder="Description"
             label="Description"
+            initialValid={true}
+            value={formState.desc}
             onInput={inputHandler}
           />
           <Text element="h3">Cards</Text>
-          <SetCreator />
-          <Button type="submit" disabled={!formState.isFormValid}>
+          <SetCreator value={formState.cards} />
+          <Button
+            type="submit"
+            onClick={onRolesetSubmit}
+            disabled={!formState.isFormValid}
+          >
             Add Set
           </Button>
         </form>

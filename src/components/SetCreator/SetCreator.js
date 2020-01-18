@@ -5,12 +5,12 @@ import CardSelector from "./CardSelector";
 
 const SetCreator = props => {
   const [rolesetState, setRolesetState] = useState([
-    "alien",
-    "alien",
-    "alien",
-    "alien",
-    "alien",
-    "alien"
+    "werewolf",
+    "minion",
+    "robber",
+    "troublemaker",
+    "drunk",
+    "tanner"
   ]);
 
   const onAddCardHandler = event => {
