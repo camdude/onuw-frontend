@@ -24,7 +24,7 @@ const RoleSet = props => {
         console.log("Loading Backup");
         setloadedRoleset(
           roleBackup.rolesets.find(r => {
-            return r.id == id;
+            return r.id === id;
           })
         );
       }

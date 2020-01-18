@@ -1,0 +1,35 @@
+.Card-Selector {
+  display: flex;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+  padding: 1rem;
+  background-color: $color-grey-light;
+
+  &__index {
+    margin-right: 1rem;
+  }
+
+  &__image {
+    min-width: 3rem;
+    width: 5%;
+    margin-right: 1rem;
+  }
+
+  &__dropdown {
+    display: block;
+    margin-right: 1rem;
+    width: 100%;
+    border: 1px solid $color-grey;
+    padding: 1rem;
+    background: $color-white;
+    color: $color-grey-dark;
+    text-transform: capitalize;
+
+    &:active,
+    &:focus {
+      outline: none;
+      border: 1px solid $color-primary-light;
+      background: $color-grey-light;
+    }
+  }
+}

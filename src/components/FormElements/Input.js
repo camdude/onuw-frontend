@@ -90,7 +90,7 @@ const Input = props => {
       <select
         className={`form-group__input ${!inputState.isValid &&
           inputState.isTouched &&
-          "form-group__input--invalid"}`}
+          "form-group__input--invalid"} form-group__input--select`}
         id={props.id}
         value={inputState.value}
         disabled={props.disabled}

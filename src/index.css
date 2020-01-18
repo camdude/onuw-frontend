@@ -151,6 +151,8 @@ body {
     resize: vertical; }
     .form-group__input--invalid {
       border: 1px solid #cc0000; }
+    .form-group__input--select {
+      text-transform: capitalize; }
     .form-group__input::placeholder {
       color: #aaa; }
     .form-group__input:active, .form-group__input:focus {
@@ -239,7 +241,7 @@ body {
     font-weight: 600;
     text-decoration: none;
     cursor: pointer; }
-  .navItem__link:hover, .navItem__link:active {
+  .navItem__link:hover, .navItem__link:active, .navItem__link.active {
     color: #fff; }
 
 .sidebar {
@@ -309,6 +311,37 @@ body {
     flex-direction: row; }
   .RoleSetCard__statElement {
     margin-right: 1.5rem; }
+
+.Card-Selector {
+  display: flex;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+  padding: 1rem;
+  background-color: #ddd; }
+  .Card-Selector__index {
+    margin-right: 1rem; }
+  .Card-Selector__image {
+    min-width: 3rem;
+    width: 5%;
+    margin-right: 1rem; }
+  .Card-Selector__dropdown {
+    display: block;
+    margin-right: 1rem;
+    width: 100%;
+    border: 1px solid #aaa;
+    padding: 1rem;
+    background: #fff;
+    color: #333;
+    text-transform: capitalize; }
+    .Card-Selector__dropdown:active, .Card-Selector__dropdown:focus {
+      outline: none;
+      border: 1px solid #323a79;
+      background: #ddd; }
+
+.Set-Creator {
+  margin: 1rem 0;
+  border: 1px solid #262C5C;
+  padding: 1rem; }
 
 .row {
   max-width: 114rem;

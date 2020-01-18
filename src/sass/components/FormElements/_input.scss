@@ -33,6 +33,10 @@
       border: 1px solid $color-danger;
     }
 
+    &--select {
+      text-transform: capitalize;
+    }
+
     &::placeholder {
       color: $color-grey;
     }

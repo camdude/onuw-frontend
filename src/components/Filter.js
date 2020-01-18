@@ -3,14 +3,13 @@ import React, { useState, useEffect } from "react";
 import CheckboxGroup from "../components/FilterElements/CheckboxGroup";
 import RoleSetCard from "../components/RoleSetCard";
 import { useFilter } from "../hooks/useFilter";
-import Input from "./FormElements/Input";
 
 const Filter = props => {
   const data = props.data;
   const [filterState, inputHandler] = useFilter({
     players: 0,
     complexity: "all",
-    expansions: ["original"]
+    expansions: ["original", "daybreak", "alien", "vampire", "super villians"]
   });
   const [filteredList, setFilteredList] = useState(props.data);
 
