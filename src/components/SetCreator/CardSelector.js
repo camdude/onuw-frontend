@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Button from "../FormElements/Button";
 
@@ -65,12 +65,6 @@ const cards = [
 ];
 
 const CardSelector = props => {
-  const [selectedCard, setSelectedCard] = useState(props.selected || cards[0]);
-
-  const onChangeHandler = event => {
-    setSelectedCard(event.target.value);
-  };
-
   const onRemoveHandler = event => {
     event.preventDefault();
     props.onRemove(props.index);
@@ -79,27 +73,25 @@ const CardSelector = props => {
   return (
     <div className="Card-Selector">
       <div className="Card-Selector__index">{props.index + 1}</div>
-      {selectedCard && (
-        <img
-          className="Card-Selector__image"
-          src={require(`../../assets/role_cards/${selectedCard.replace(
-            / /g,
-            "_"
-          )}.png`)}
-          alt=""
-        />
-      )}
+      <img
+        className="Card-Selector__image"
+        src={require(`../../assets/role_cards/${props.selected.replace(
+          / /g,
+          "_"
+        )}.png`)}
+        alt=""
+      />
       <select
         id={props.index}
         className="Card-Selector__dropdown"
         onChange={props.onChange}
-        value={selectedCard}
+        value={props.selected}
       >
         {cards.map(c => (
           <option key={c}>{c}</option>
         ))}
       </select>
-      <Button onClick={onRemoveHandler}>&#8722;</Button>
+      <Button onClick={onRemoveHandler} disabled={props.removeDisabled}>&#8722;</Button>
     </div>
   );
 };
