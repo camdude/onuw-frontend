@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Button from "../FormElements/Button";
 import CardSelector from "./CardSelector";
@@ -31,6 +31,12 @@ const SetCreator = props => {
       setRolesetState(newRolesetState);
     }
   };
+
+  const { id, onInput } = props;
+
+  useEffect(() => {
+    onInput(id, rolesetState, true);
+  }, [onInput, id, rolesetState]);
 
   return (
     <div className="Set-Creator">

@@ -28,9 +28,10 @@ const Filter = props => {
     //  Filter out players
     if (filterState.players >= 3) {
       filtered = data.filter(set => {
-        return set.players === filterState.players;
+        return set.players == filterState.players;
       });
     }
+    console.log(filtered);
 
     //  Filter out complexity
     if (filterState.complexity !== "all") {

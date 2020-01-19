@@ -1,15 +1,16 @@
 import React from "react";
 
-import { useForm } from "../hooks/useForm";
-
 import Navigation from "../layouts/Navigation";
 import Text from "../components/UIElements/Text";
 import Input from "../components/FormElements/Input";
 import Button from "../components/FormElements/Button";
 import { RULE_VALIDATOR_REQUIRED } from "../components/FormElements/validate";
 import SetCreator from "../components/SetCreator/SetCreator";
+import { useHttpClient } from "../hooks/useHttpClient";
+import { useForm } from "../hooks/useForm";
 
 const AddSet = () => {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm({
     title: {
       value: "",
@@ -36,9 +37,23 @@ const AddSet = () => {
     }
   });
 
-  const onRolesetSubmit = event => {
+  const onRolesetSubmit = async event => {
     event.preventDefault();
+
     console.log(formState);
+    try {
+      var formData = new FormData();
+      formData.append("title", formState.inputs.title.value);
+      formData.append("complexity", formState.inputs.complexity.value);
+      formData.append("desc", formState.inputs.desc.value);
+      formData.append("roles", formState.inputs.cards.value);
+
+      await sendRequest("http://localhost:5000/api/roleset", "POST", formData);
+
+      // history.push("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -64,6 +79,7 @@ const AddSet = () => {
             label="Complexity"
             options={["simple", "moderate", "complex"]}
             initialValid={true}
+            initialValue="simple"
             value={formState.complexity}
             onInput={inputHandler}
             rules={[RULE_VALIDATOR_REQUIRED]}
@@ -78,7 +94,14 @@ const AddSet = () => {
             onInput={inputHandler}
           />
           <Text element="h3">Cards</Text>
-          <SetCreator value={formState.cards} />
+          <Text>
+            Please select the cards you would like to use in this role set.
+          </Text>
+          <SetCreator
+            id="cards"
+            value={formState.cards}
+            onInput={inputHandler}
+          />
           <Button
             type="submit"
             onClick={onRolesetSubmit}

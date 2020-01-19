@@ -294,7 +294,8 @@ body {
 .RoleCard {
   display: inline-block; }
   .RoleCard__img {
-    width: 10rem; }
+    width: 10rem;
+    border-radius: 1rem; }
 
 .RoleSetCard {
   margin-bottom: 2rem;
