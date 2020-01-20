@@ -9,7 +9,14 @@ const Filter = props => {
   const [filterState, inputHandler] = useFilter({
     players: 0,
     complexity: "all",
-    expansions: ["original", "daybreak", "alien", "vampire", "super villians"]
+    expansions: [
+      "original",
+      "daybreak",
+      "alien",
+      "vampire",
+      "super villians",
+      "bonus"
+    ]
   });
   const [filteredList, setFilteredList] = useState(props.data);
 
@@ -97,7 +104,8 @@ const Filter = props => {
               "daybreak",
               "alien",
               "vampire",
-              "super villians"
+              "super villians",
+              "bonus"
             ]}
             value={filterState.expansions}
             onInput={inputHandler}
