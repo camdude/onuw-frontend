@@ -42,13 +42,19 @@ const AddSet = () => {
 
     console.log(formState);
     try {
-      var formData = new FormData();
-      formData.append("title", formState.inputs.title.value);
-      formData.append("complexity", formState.inputs.complexity.value);
-      formData.append("desc", formState.inputs.desc.value);
-      formData.append("roles", formState.inputs.cards.value);
+      const formData = {
+        title: formState.inputs.title.value,
+        complexity: formState.inputs.complexity.value,
+        desc: formState.inputs.desc.value,
+        roles: formState.inputs.cards.value
+      };
 
-      await sendRequest("http://localhost:5000/api/roleset", "POST", formData);
+      await sendRequest(
+        "http://localhost:5000/api/roleset",
+        "POST",
+        JSON.stringify(formData),
+        { "Content-Type": "application/json" }
+      );
 
       // history.push("/");
     } catch (error) {
