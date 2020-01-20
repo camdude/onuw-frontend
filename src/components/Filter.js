@@ -31,7 +31,6 @@ const Filter = props => {
         return set.players == filterState.players;
       });
     }
-    console.log(filtered);
 
     //  Filter out complexity
     if (filterState.complexity !== "all") {

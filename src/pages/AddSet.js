@@ -40,13 +40,17 @@ const AddSet = () => {
   const onRolesetSubmit = async event => {
     event.preventDefault();
 
-    console.log(formState);
+    const roles = formState.inputs.cards.value;
+    for (let i = 0; i < roles.length; i++) {
+      roles[i] = roles[i].replace(" ", "_");
+    }
+
     try {
       const formData = {
         title: formState.inputs.title.value,
         complexity: formState.inputs.complexity.value,
         desc: formState.inputs.desc.value,
-        roles: formState.inputs.cards.value
+        roles: roles
       };
 
       await sendRequest(
