@@ -42,10 +42,10 @@ const RoleSet = props => {
             <span className="u-bold-text">Posted By: </span>
             {loadedRoleset.username}
           </p>
-          <p className="RoleSet__statElement">
+          {/* <p className="RoleSet__statElement">
             <span className="u-bold-text">Rating: </span>
             {loadedRoleset.rating}
-          </p>
+          </p> */}
           <p className="RoleSet__statElement">
             <span className="u-bold-text">Expansions: </span>
             {loadedRoleset.expansions.join(", ")}

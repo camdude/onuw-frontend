@@ -22,9 +22,9 @@ const RoleSetCard = props => {
         <div className="RoleSetCard__statElement">
           <Text><span className="u-bold-text">Complexity: </span>{props.data.complexity || "~"}</Text>
         </div>
-        <div className="RoleSetCard__statElement">
+        {/* <div className="RoleSetCard__statElement">
           <Text><span className="u-bold-text">Rating: </span>{props.data.rating || "~"}</Text>
-        </div>
+        </div> */}
       </div>
     </div>
   );
