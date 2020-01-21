@@ -1,4 +1,4 @@
-# onuw-database - One Night Ultimate Werewolf Role Set Database
+# onuw-frontend - One Night Ultimate Werewolf Role Set Database
 
 ## Introduction
 
