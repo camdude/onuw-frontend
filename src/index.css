@@ -54,35 +54,39 @@ body {
   font-weight: 700; }
 
 .heading-primary {
+  margin-bottom: 2rem;
   font-size: 4rem;
   line-height: 1.25;
   text-transform: capitalize;
   color: #323a79; }
 
 .heading-secondary {
+  margin-bottom: 1rem;
   font-size: 3rem;
   text-transform: capitalize;
   color: #cfba01; }
 
 .heading-tertiary {
+  margin-bottom: .5rem;
   font-size: 1.8rem;
   text-transform: uppercase;
   color: #1a1e3f; }
 
 .paragraph {
   font-size: 1.6rem;
+  line-height: 1.2;
   color: #333; }
   .paragraph:not(:last-child) {
-    margin-bottom: 1.5rem; }
+    margin-bottom: 1rem; }
 
 .link:link, .link:visited {
   text-decoration: none;
-  color: #020300;
+  color: #323a79;
   cursor: pointer; }
 
 .link:hover, .link:active {
   text-decoration: underline;
-  color: #fee824; }
+  color: #cfba01; }
 
 .u-bold-text {
   font-weight: bold !important; }
@@ -347,6 +351,59 @@ body {
   border: 1px solid #262C5C;
   padding: 1rem; }
 
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out; }
+
+.loader {
+  color: #262C5C;
+  font-size: 10px;
+  margin: 80px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s; }
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 0; }
+
+.loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s; }
+
+.loader:after {
+  left: 3.5em; }
+
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em; }
+  40% {
+    box-shadow: 0 2.5em 0 0; } }
+
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em; }
+  40% {
+    box-shadow: 0 2.5em 0 0; } }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
@@ -386,12 +443,23 @@ body {
   .row .col-3-of-4 {
     width: calc( (3 * (100% - 3 * 6rem) / 4) + (2 * 6rem)); }
 
+.Home__body {
+  margin-bottom: 2rem; }
+
+.Home__dev {
+  margin-top: 16rem;
+  border-top: 1px solid #333; }
+
+.Home__list {
+  margin-left: 4rem; }
+
 .RoleSet__stats {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 1rem;
   padding: .8rem;
+  border-radius: .5rem;
   background-color: #ddd; }
 
 .RoleSet__statElement {

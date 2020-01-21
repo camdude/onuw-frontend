@@ -5,6 +5,7 @@ import Text from "../components/UIElements/Text";
 import RoleCard from "../components/RoleCard";
 import roleBackup from "../assets/roles.json";
 import { useHttpClient } from "../hooks/useHttpClient";
+import Spinner from "../components/UIElements/Spinner";
 
 const RoleSet = props => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -32,7 +33,7 @@ const RoleSet = props => {
     fetchData();
   }, []);
 
-  let roleDetails = "Loading ...";
+  let roleDetails = <Spinner />;
   if (!isLoading && loadedRoleset) {
     roleDetails = (
       <React.Fragment>

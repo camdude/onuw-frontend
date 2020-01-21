@@ -49,13 +49,11 @@ const AddSet = props => {
   const recaptchaLoaded = () => {
     inputHandler("recaptcha", "Loaded", false);
     console.log(formState);
-
   };
 
   const recaptchaVerify = () => {
     inputHandler("recaptcha", null, true);
     console.log(formState);
-
   };
 
   const onRolesetSubmit = async event => {
@@ -75,14 +73,15 @@ const AddSet = props => {
         roles: roles
       };
 
-      const response = await sendRequest(
-        "https://onuw-backend.cmrnclffrd.now.sh/roleset",
-        "POST",
-        JSON.stringify(formData),
-        { "Content-Type": "application/json" }
-      );
+      // const response = await sendRequest(
+      //   "https://onuw-backend.cmrnclffrd.now.sh/roleset",
+      //   "POST",
+      //   JSON.stringify(formData),
+      //   { "Content-Type": "application/json" }
+      // );
 
-      props.history.push(`/roleset/${response.roleset.id}`);
+      // props.history.push(`/roleset/${response.roleset.id}`);
+      props.history.push(`/roleset`);
     } catch (error) {
       console.log(error);
     }
@@ -93,6 +92,9 @@ const AddSet = props => {
       <Navigation />
       <main className="main-body">
         <Text element="h2">New Role Set</Text>
+        <Text>
+          Please fill out the following details to create a new role set.
+        </Text>
         <form>
           <Text element="h3">Details</Text>
           <Input
@@ -137,7 +139,7 @@ const AddSet = props => {
           />
           <Text element="h3">Cards</Text>
           <Text>
-            Please select the cards you would like to use in this role set.
+            Please select the cards you would like to use in this set.
           </Text>
           <SetCreator
             id="cards"

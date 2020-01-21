@@ -73,7 +73,7 @@ const Filter = props => {
           />
           <div className="form-group__details">
             <label className="form-group__label" htmlFor={props.id}>
-              Players
+              Players - (values less than 3 will show all)
             </label>
           </div>
         </div>

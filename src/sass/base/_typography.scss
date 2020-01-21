@@ -17,6 +17,7 @@ body {
 }
 
 .heading-primary {
+    margin-bottom: 2rem;
     font-size: 4rem;
     line-height: 1.25;
     text-transform: capitalize;
@@ -24,12 +25,14 @@ body {
 }
 
 .heading-secondary {
+    margin-bottom: 1rem;
     font-size: 3rem;
     text-transform: capitalize;
     color: $color-secondary-dark;
 }
 
 .heading-tertiary {
+    margin-bottom: .5rem;
     font-size: 1.8rem;
     text-transform: uppercase;
     color: $color-primary-dark;
@@ -37,10 +40,11 @@ body {
 
 .paragraph {
     font-size: $default-font-size;
+    line-height: 1.2;
     color: $color-grey-dark;
 
     &:not(:last-child) {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 }
 
@@ -48,13 +52,13 @@ body {
     &:link,
     &:visited {
         text-decoration: none;
-        color: $color-tertiary;
+        color: $color-primary-light;
         cursor: pointer;
     }
 
     &:hover,
     &:active {
         text-decoration: underline;
-        color: $color-secondary-light;
+        color: $color-secondary-dark;
     }
 }

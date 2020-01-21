@@ -6,6 +6,7 @@ import Button from "../components/FormElements/Button";
 import Filter from "../components/Filter";
 import roleBackup from "../assets/roles.json";
 import { useHttpClient } from "../hooks/useHttpClient";
+import Spinner from "../components/UIElements/Spinner";
 
 const SetList = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -33,7 +34,7 @@ const SetList = () => {
       <main className="main-body">
         <Text element="h2">Role Sets</Text>
         <Button to="/roleset/add">Add Role Set</Button>
-        {!isLoading && loadedRolesets ? <Filter data={loadedRolesets} /> : <Text>Loading ...</Text>}
+        {!isLoading && loadedRolesets ? <Filter data={loadedRolesets} /> : <Spinner />}
       </main>
     </div>
   );

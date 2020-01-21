@@ -1,0 +1,15 @@
+.Home {
+
+  &__body {
+    margin-bottom: 2rem;
+  }
+
+  &__dev {
+    margin-top: 16rem;
+    border-top: 1px solid $color-grey-dark;
+  }
+
+  &__list {
+    margin-left: 4rem;
+  }
+}
