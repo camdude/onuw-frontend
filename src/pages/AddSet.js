@@ -81,7 +81,7 @@ const AddSet = props => {
       // );
 
       // props.history.push(`/roleset/${response.roleset.id}`);
-      props.history.push(`/roleset`);
+      props.history.push(`/roleset/all`);
     } catch (error) {
       console.log(error);
     }
