@@ -16,7 +16,7 @@ const RoleSet = props => {
     const fetchData = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/roleset/${id}`
+          `https://express-test.cmrnclffrd.now.sh/roleset/${id}`
         );
         setloadedRoleset(responseData.roleset);
       } catch (error) {
@@ -48,7 +48,7 @@ const RoleSet = props => {
         </div>
 
         <Text>Expansions: {loadedRoleset.expansions.join(", ")}</Text>
-        <Text>Description: {loadedRoleset.desc}</Text>
+        <Text>Game Notes: {loadedRoleset.desc}</Text>
         <Text>Cards:</Text>
         <ul className="RoleList">
           {loadedRoleset.roles

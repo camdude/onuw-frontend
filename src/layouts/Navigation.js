@@ -8,7 +8,7 @@ const Navigation = () => {
   return (
     <NavBar home="/" logo={Icon}>
       <NavItem link="/">Home</NavItem>
-      <NavItem link="/rolesets">Role Sets</NavItem>
+      <NavItem link="/roleset/all">Role Sets</NavItem>
     </NavBar>
   );
 };

@@ -6,7 +6,7 @@ import Text from "./UIElements/Text";
 const RoleSetCard = props => {
   return (
     <div className="RoleSetCard">
-      <Link className="heading-tertiary RoleSetCard__title" to={`/set/${props.id}`}>
+      <Link className="heading-tertiary RoleSetCard__title" to={`/roleset/${props.id}`}>
         {props.title}
       </Link>
       <div className="RoleSetCard__stats">

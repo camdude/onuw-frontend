@@ -9,7 +9,7 @@ import SetCreator from "../components/SetCreator/SetCreator";
 import { useHttpClient } from "../hooks/useHttpClient";
 import { useForm } from "../hooks/useForm";
 
-const AddSet = () => {
+const AddSet = props => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm({
     title: {
@@ -53,14 +53,14 @@ const AddSet = () => {
         roles: roles
       };
 
-      await sendRequest(
-        "http://localhost:5000/api/roleset",
+      const response = await sendRequest(
+        "https://express-test.cmrnclffrd.now.sh/roleset",
         "POST",
         JSON.stringify(formData),
         { "Content-Type": "application/json" }
       );
 
-      // history.push("/");
+      props.history.push(`/roleset/${response.roleset.id}`);
     } catch (error) {
       console.log(error);
     }
@@ -97,8 +97,8 @@ const AddSet = () => {
           <Input
             id="desc"
             element="textarea"
-            placeholder="Description"
-            label="Description"
+            placeholder="Game Notes"
+            label="Game Notes"
             initialValid={true}
             value={formState.desc}
             onInput={inputHandler}

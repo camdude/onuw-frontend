@@ -15,7 +15,7 @@ const SetList = () => {
     const fetchData = async () => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/api/roleset"
+          "https://express-test.cmrnclffrd.now.sh/roleset"
         );
         setloadedRolesets(responseData.rolesets);
       } catch (error) {
@@ -32,7 +32,7 @@ const SetList = () => {
       <Navigation />
       <main className="main-body">
         <Text element="h2">Role Sets</Text>
-        <Button to="/rolesets/add">Add Role Set</Button>
+        <Button to="/roleset/add">Add Role Set</Button>
         {!isLoading && loadedRolesets ? <Filter data={loadedRolesets} /> : <Text>Loading ...</Text>}
       </main>
     </div>

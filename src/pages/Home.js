@@ -13,7 +13,7 @@ const Home = () => {
           One Night Ultimate Werewolf Role Set Database
         </Text>
         <div className="">
-          <Button type="link" to="/rolesets">
+          <Button type="link" to="/roleset/all">
             See all role sets
           </Button>
         </div>
