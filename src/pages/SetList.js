@@ -15,7 +15,7 @@ const SetList = () => {
     const fetchData = async () => {
       try {
         const responseData = await sendRequest(
-          "https://express-test.cmrnclffrd.now.sh/roleset"
+          "https://onuw-backend.cmrnclffrd.now.sh/roleset"
         );
         setloadedRolesets(responseData.rolesets);
       } catch (error) {

@@ -54,7 +54,7 @@ const AddSet = props => {
       };
 
       const response = await sendRequest(
-        "https://express-test.cmrnclffrd.now.sh/roleset",
+        "https://onuw-backend.cmrnclffrd.now.sh/roleset",
         "POST",
         JSON.stringify(formData),
         { "Content-Type": "application/json" }
