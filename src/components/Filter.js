@@ -117,11 +117,7 @@ const Filter = props => {
         return (
           <RoleSetCard
             key={index}
-            id={set.id}
-            title={set.title}
-            players={set.players}
-            complexity={set.complexity}
-            rating={set.rating}
+            data={set}
           />
         );
       })}

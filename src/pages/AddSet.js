@@ -1,4 +1,5 @@
 import React from "react";
+import Recaptcha from "react-recaptcha";
 
 import Navigation from "../layouts/Navigation";
 import Text from "../components/UIElements/Text";
@@ -24,6 +25,10 @@ const AddSet = props => {
       value: "",
       isValid: true
     },
+    username: {
+      value: "",
+      isValid: false
+    },
     cards: {
       value: [
         "werewolf",
@@ -34,8 +39,24 @@ const AddSet = props => {
         "tanner"
       ],
       isValid: true
+    },
+    recaptcha: {
+      value: null,
+      isValid: false
     }
   });
+
+  const recaptchaLoaded = () => {
+    inputHandler("recaptcha", "Loaded", false);
+    console.log(formState);
+
+  };
+
+  const recaptchaVerify = () => {
+    inputHandler("recaptcha", null, true);
+    console.log(formState);
+
+  };
 
   const onRolesetSubmit = async event => {
     event.preventDefault();
@@ -49,6 +70,7 @@ const AddSet = props => {
       const formData = {
         title: formState.inputs.title.value,
         complexity: formState.inputs.complexity.value,
+        username: formState.inputs.username.value,
         desc: formState.inputs.desc.value,
         roles: roles
       };
@@ -103,6 +125,16 @@ const AddSet = props => {
             value={formState.desc}
             onInput={inputHandler}
           />
+          <Input
+            id="username"
+            type="text"
+            placeholder="Username"
+            label="Username"
+            value={formState.user}
+            onInput={inputHandler}
+            rules={[RULE_VALIDATOR_REQUIRED]}
+            errorMsg="Please enter your username."
+          />
           <Text element="h3">Cards</Text>
           <Text>
             Please select the cards you would like to use in this role set.
@@ -111,6 +143,12 @@ const AddSet = props => {
             id="cards"
             value={formState.cards}
             onInput={inputHandler}
+          />
+          <Recaptcha
+            sitekey="6LeASdEUAAAAAAYIgGK93we9F3Dcwpf_cGr8p3Gx"
+            render="explicit"
+            onloadCallback={recaptchaLoaded}
+            verifyCallback={recaptchaVerify}
           />
           <Button
             type="submit"

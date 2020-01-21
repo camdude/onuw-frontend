@@ -3,11 +3,15 @@
   &__stats {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     margin-bottom: 1rem;
+    padding: .8rem;
+    background-color: $color-grey-light;
   }
 
   &__statElement {
     margin-right: 4rem;
+    text-transform: capitalize;
   }
 }
 

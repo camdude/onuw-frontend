@@ -93,6 +93,8 @@ body {
 .CheckboxGroup {
   padding: 0 2rem;
   border: 2px solid #262C5C; }
+  .CheckboxGroup__label {
+    margin-left: .5rem; }
 
 .button {
   display: inline-block;
@@ -311,7 +313,8 @@ body {
     display: flex;
     flex-direction: row; }
   .RoleSetCard__statElement {
-    margin-right: 1.5rem; }
+    margin-right: 1.5rem;
+    text-transform: capitalize; }
 
 .Card-Selector {
   display: flex;
@@ -386,10 +389,14 @@ body {
 .RoleSet__stats {
   display: flex;
   flex-direction: row;
-  margin-bottom: 1rem; }
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding: .8rem;
+  background-color: #ddd; }
 
 .RoleSet__statElement {
-  margin-right: 4rem; }
+  margin-right: 4rem;
+  text-transform: capitalize; }
 
 .RoleList {
   display: block;

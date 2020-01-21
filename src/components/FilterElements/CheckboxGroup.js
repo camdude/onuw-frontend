@@ -22,14 +22,13 @@ const CheckboxGroup = props => {
         return (
           <div key={i} className="form-group">
             <input
-              // className="form-group__input"
               id={i}
               type="checkbox"
               name={i}
               checked={groupState.includes(i)}
               onChange={changeHandler}
             />
-            <label className="form-group__label" htmlFor={i}>
+            <label className="form-group__label CheckboxGroup__label" htmlFor={i}>
               {i}
             </label>
           </div>

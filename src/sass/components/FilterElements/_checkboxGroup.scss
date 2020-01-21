@@ -1,4 +1,8 @@
 .CheckboxGroup {
   padding: 0 2rem;
   border: 2px solid $color-primary;
+
+  &__label {
+    margin-left: .5rem;
+  }
 }

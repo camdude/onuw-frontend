@@ -6,18 +6,24 @@ import Text from "./UIElements/Text";
 const RoleSetCard = props => {
   return (
     <div className="RoleSetCard">
-      <Link className="heading-tertiary RoleSetCard__title" to={`/roleset/${props.id}`}>
-        {props.title}
+      <Link
+        className="heading-tertiary RoleSetCard__title"
+        to={`/roleset/${props.data.id}`}
+      >
+        {props.data.title}
       </Link>
       <div className="RoleSetCard__stats">
         <div className="RoleSetCard__statElement">
-          <Text>Players: {props.players}</Text>
+          <Text><span className="u-bold-text">Author: </span>{props.data.username}</Text>
         </div>
         <div className="RoleSetCard__statElement">
-          <Text>Complexity: {props.complexity || "~"}</Text>
+          <Text><span className="u-bold-text">Players: </span>{props.data.players}</Text>
         </div>
         <div className="RoleSetCard__statElement">
-          <Text>Rating: {props.rating || "~"}</Text>
+          <Text><span className="u-bold-text">Complexity: </span>{props.data.complexity || "~"}</Text>
+        </div>
+        <div className="RoleSetCard__statElement">
+          <Text><span className="u-bold-text">Rating: </span>{props.data.rating || "~"}</Text>
         </div>
       </div>
     </div>

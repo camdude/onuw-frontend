@@ -39,17 +39,33 @@ const RoleSet = props => {
         <Text element="h2">{loadedRoleset.title}</Text>
         <div className="RoleSet__stats">
           <p className="RoleSet__statElement">
-            Players: {loadedRoleset.players}
+            <span className="u-bold-text">Posted By: </span>
+            {loadedRoleset.username}
           </p>
           <p className="RoleSet__statElement">
-            Complexity: {loadedRoleset.complexity}
+            <span className="u-bold-text">Rating: </span>
+            {loadedRoleset.rating}
           </p>
-          <p className="RoleSet__statElement">Rating: {loadedRoleset.rating}</p>
+          <p className="RoleSet__statElement">
+            <span className="u-bold-text">Expansions: </span>
+            {loadedRoleset.expansions.join(", ")}
+          </p>
+          <p className="RoleSet__statElement">
+            <span className="u-bold-text">Players: </span>
+            {loadedRoleset.players}
+          </p>
+          <p className="RoleSet__statElement">
+            <span className="u-bold-text">Complexity: </span>
+            {loadedRoleset.complexity}
+          </p>
         </div>
-
-        <Text>Expansions: {loadedRoleset.expansions.join(", ")}</Text>
-        <Text>Game Notes: {loadedRoleset.desc}</Text>
-        <Text>Cards:</Text>
+        <Text>
+          <span className="u-bold-text">Game Notes: </span>
+          {loadedRoleset.desc}
+        </Text>
+        <Text>
+          <span className="u-bold-text">Cards: </span>
+        </Text>
         <ul className="RoleList">
           {loadedRoleset.roles
             ? loadedRoleset.roles.map((r, index) => {
