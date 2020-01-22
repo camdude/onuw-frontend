@@ -9,6 +9,7 @@ import { RULE_VALIDATOR_REQUIRED } from "../components/FormElements/validate";
 import SetCreator from "../components/SetCreator/SetCreator";
 import { useHttpClient } from "../hooks/useHttpClient";
 import { useForm } from "../hooks/useForm";
+import Footer from "../layouts/Footer";
 
 const AddSet = props => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -73,12 +74,12 @@ const AddSet = props => {
         roles: roles
       };
 
-      // const response = await sendRequest(
-      //   "https://onuw-backend.cmrnclffrd.now.sh/roleset",
-      //   "POST",
-      //   JSON.stringify(formData),
-      //   { "Content-Type": "application/json" }
-      // );
+      const response = await sendRequest(
+        "https://onuw-backend.cmrnclffrd.now.sh/roleset",
+        "POST",
+        JSON.stringify(formData),
+        { "Content-Type": "application/json" }
+      );
 
       // props.history.push(`/roleset/${response.roleset.id}`);
       props.history.push(`/roleset/all`);
@@ -161,6 +162,7 @@ const AddSet = props => {
           </Button>
         </form>
       </main>
+      <Footer />
     </div>
   );
 };

@@ -33,7 +33,7 @@ body {
   margin: 0 12.5%;
   margin-top: 6.2rem;
   padding: 4rem 0;
-  min-height: 75vh; }
+  min-height: 80vh; }
   @media (max-width: 56.25em) {
     .main-body {
       margin: 0 2rem;
@@ -404,6 +404,15 @@ body {
   40% {
     box-shadow: 0 2.5em 0 0; } }
 
+.Footer {
+  margin: 0 12.5%;
+  margin-top: 2rem;
+  border-top: 1px solid #333; }
+  @media (max-width: 56.25em) {
+    .Footer {
+      margin: 0;
+      padding: 0 .5rem; } }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
@@ -452,6 +461,11 @@ body {
 
 .Home__list {
   margin-left: 4rem; }
+
+.Home__disclaimer {
+  margin: 0 12.5%;
+  margin-top: 2rem;
+  border-top: 1px solid #333; }
 
 .RoleSet__stats {
   display: flex;

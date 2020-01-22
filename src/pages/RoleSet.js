@@ -6,6 +6,7 @@ import RoleCard from "../components/RoleCard";
 import roleBackup from "../assets/roles.json";
 import { useHttpClient } from "../hooks/useHttpClient";
 import Spinner from "../components/UIElements/Spinner";
+import Footer from "../layouts/Footer";
 
 const RoleSet = props => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -86,6 +87,7 @@ const RoleSet = props => {
     <div className="RoleSet">
       <Navigation />
       <main className="main-body">{roleDetails}</main>
+      <Footer />
     </div>
   );
 };
