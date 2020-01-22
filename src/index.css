@@ -410,8 +410,7 @@ body {
   border-top: 1px solid #333; }
   @media (max-width: 56.25em) {
     .Footer {
-      margin: 0;
-      padding: 0 .5rem; } }
+      margin: 0 2rem; } }
 
 .row {
   max-width: 114rem;

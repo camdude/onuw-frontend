@@ -8,7 +8,7 @@ const Footer = () => {
       <Text>
         This website is in no way affiliated with or endorsed by Bezier Games.
         All characters, artwork and related indicia are trademarks of and Bezier
-        Games. All Rights Reserved..
+        Games. All Rights Reserved.
       </Text>
     </div>
   );
