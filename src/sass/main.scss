@@ -19,10 +19,12 @@
 @import "components/RoleSetCard";
 @import "components/SetCreator/CardSelector";
 @import "components/SetCreator/SetCreator";
+@import "components/UIElements/card";
 @import "components/UIElements/spinner";
 
 @import "layout/footer";
 @import "layout/grid";
 
+@import "pages/Auth";
 @import "pages/Home";
 @import "pages/RoleSet";

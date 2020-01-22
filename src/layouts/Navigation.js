@@ -9,6 +9,7 @@ const Navigation = () => {
     <NavBar home="/" logo={Icon}>
       <NavItem link="/" exact>Home</NavItem>
       <NavItem link="/roleset/all">Role Sets</NavItem>
+      <NavItem link="/users/login">Login</NavItem>
     </NavBar>
   );
 };

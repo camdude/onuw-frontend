@@ -133,7 +133,7 @@ const AddSet = props => {
             type="text"
             placeholder="Username"
             label="Username"
-            value={formState.user}
+            value={formState.username}
             onInput={inputHandler}
             rules={[RULE_VALIDATOR_REQUIRED]}
             errorMsg="Please enter your username."
