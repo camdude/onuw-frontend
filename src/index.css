@@ -498,3 +498,6 @@ body {
   .RoleList__role {
     display: inline-block;
     margin: .5rem; }
+
+.Signup__error {
+  color: red; }

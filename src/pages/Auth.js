@@ -12,7 +12,7 @@ import { useHttpClient } from "../hooks/useHttpClient";
 const Auth = props => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm({
-    username: {
+    email: {
       value: "",
       isValid: false
     },
@@ -27,12 +27,12 @@ const Auth = props => {
 
     try {
       const formData = {
-        username: formState.inputs.username.value,
+        email: formState.inputs.email.value,
         password: formState.inputs.password.value
       };
 
       const response = await sendRequest(
-        "https://onuw-backend.cmrnclffrd.now.sh/users",
+        "https://onuw-backend.cmrnclffrd.now.sh/api/users/login",
         "POST",
         JSON.stringify(formData),
         { "Content-Type": "application/json" }
@@ -52,11 +52,11 @@ const Auth = props => {
           <Card>
             <Text element="h2">Login</Text>
             <Input
-              id="username"
+              id="email"
               type="text"
-              placeholder="Username"
-              label="Username"
-              value={formState.username}
+              placeholder="Email"
+              label="Email"
+              value={formState.email}
               onInput={inputHandler}
               rules={[RULE_VALIDATOR_REQUIRED]}
               errorMsg="Please enter your username."

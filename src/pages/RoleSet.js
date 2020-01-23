@@ -18,7 +18,7 @@ const RoleSet = props => {
     const fetchData = async () => {
       try {
         const responseData = await sendRequest(
-          `https://onuw-backend.cmrnclffrd.now.sh/roleset/${id}`
+          `https://onuw-backend.cmrnclffrd.now.sh/api/roleset/${id}`
         );
         setloadedRoleset(responseData.roleset);
       } catch (error) {

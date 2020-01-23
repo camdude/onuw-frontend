@@ -6,9 +6,15 @@ import Button from "../components/FormElements/Button";
 import Input from "../components/FormElements/Input";
 import Card from "../components/UIElements/Card";
 import { useForm } from "../hooks/useForm";
-import { RULE_VALIDATOR_REQUIRED, RULE_VALIDATOR_EMAIL } from "../components/FormElements/validate";
+import {
+  RULE_VALIDATOR_REQUIRED,
+  RULE_VALIDATOR_EMAIL
+} from "../components/FormElements/validate";
+import { useHttpClient } from "../hooks/useHttpClient";
+import { useState } from "react";
 
-const Signup = () => {
+const Signup = props => {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm({
     username: {
       value: "",
@@ -27,18 +33,45 @@ const Signup = () => {
       isValid: false
     }
   });
+  const [errorMsg, setErrorMsg] = useState();
 
-  const onSignup = event => {
+  const onSignup = async event => {
     event.preventDefault();
+
+    if (formState.inputs.password.value === formState.inputs.confirm.value) {
+      try {
+        const formData = {
+          username: formState.inputs.username.value,
+          email: formState.inputs.email.value,
+          password: formState.inputs.password.value
+        };
+
+        const response = await sendRequest(
+          "https://onuw-backend.cmrnclffrd.now.sh/api/user/new",
+          "POST",
+          JSON.stringify(formData),
+          { "Content-Type": "application/json" }
+        );
+
+        console.log(response);
+
+        props.history.push(`/roleset/all`);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      setErrorMsg("Please make sure that both passwords match!");
+    }
   };
 
   return (
     <div className="Signup">
       <Navigation />
       <main className="main-body">
-        <form className="">
+        <form className="Signup">
           <Card>
             <Text element="h2">Signup</Text>
+            <p className="paragraph Signup__error">{errorMsg}</p>
             <Input
               id="username"
               type="text"
