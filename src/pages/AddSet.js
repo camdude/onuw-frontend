@@ -81,8 +81,7 @@ const AddSet = props => {
         { "Content-Type": "application/json" }
       );
 
-      // props.history.push(`/roleset/${response.roleset.id}`);
-      props.history.push(`/roleset/all`);
+      props.history.push(`/roleset/${response.roleset.id}`);
     } catch (error) {
       console.log(error);
     }

@@ -1,4 +1,5 @@
 import React from "react";
+import Recaptcha from "react-recaptcha";
 
 import Navigation from "../layouts/Navigation";
 import Text from "../components/UIElements/Text";
@@ -31,9 +32,23 @@ const Signup = props => {
     confirm: {
       value: "",
       isValid: false
+    },
+    recaptcha: {
+      value: null,
+      isValid: false
     }
   });
   const [errorMsg, setErrorMsg] = useState();
+
+  const recaptchaLoaded = () => {
+    inputHandler("recaptcha", "Loaded", false);
+    console.log(formState);
+  };
+
+  const recaptchaVerify = () => {
+    inputHandler("recaptcha", null, true);
+    console.log(formState);
+  };
 
   const onSignup = async event => {
     event.preventDefault();
@@ -112,7 +127,17 @@ const Signup = props => {
               rules={[RULE_VALIDATOR_REQUIRED]}
               errorMsg="Please confirm your password."
             />
-            <Button type="submit" onClick={onSignup}>
+            <Recaptcha
+              sitekey="6LeASdEUAAAAAAYIgGK93we9F3Dcwpf_cGr8p3Gx"
+              render="explicit"
+              onloadCallback={recaptchaLoaded}
+              verifyCallback={recaptchaVerify}
+            />
+            <Button
+              type="submit"
+              onClick={onSignup}
+              disabled={!formState.isFormValid}
+            >
               Signup
             </Button>
           </Card>
