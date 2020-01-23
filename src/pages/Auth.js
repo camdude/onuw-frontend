@@ -32,7 +32,7 @@ const Auth = props => {
       };
 
       const response = await sendRequest(
-        "https://onuw-backend.cmrnclffrd.now.sh/api/users/login",
+        "https://onuw-backend.cmrnclffrd.now.sh/api/user/login",
         "POST",
         JSON.stringify(formData),
         { "Content-Type": "application/json" }
