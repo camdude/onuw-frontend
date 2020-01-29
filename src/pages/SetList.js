@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import Navigation from "../layouts/Navigation";
 import Text from "../components/UIElements/Text";
@@ -8,8 +8,10 @@ import roleBackup from "../assets/roles.json";
 import { useHttpClient } from "../hooks/useHttpClient";
 import Spinner from "../components/UIElements/Spinner";
 import Footer from "../layouts/Footer";
+import { AuthContext } from "../context/auth-context";
 
 const SetList = () => {
+  const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [loadedRolesets, setloadedRolesets] = useState();
 
@@ -47,7 +49,7 @@ const SetList = () => {
       <Navigation />
       <main className="main-body">
         <Text element="h2">Role Sets</Text>
-        <Button to="/roleset/add">Add Role Set</Button>
+        {auth.userId && <Button to="/roleset/add">Add Role Set</Button>}
         {!isLoading && loadedRolesets ? (
           <Filter data={loadedRolesets} />
         ) : (

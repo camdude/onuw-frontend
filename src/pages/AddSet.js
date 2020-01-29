@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Recaptcha from "react-recaptcha";
 
 import Navigation from "../layouts/Navigation";
@@ -10,8 +10,10 @@ import SetCreator from "../components/SetCreator/SetCreator";
 import { useHttpClient } from "../hooks/useHttpClient";
 import { useForm } from "../hooks/useForm";
 import Footer from "../layouts/Footer";
+import { AuthContext } from "../context/auth-context";
 
 const AddSet = props => {
+  const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm({
     title: {
@@ -25,10 +27,6 @@ const AddSet = props => {
     desc: {
       value: "",
       isValid: true
-    },
-    username: {
-      value: "",
-      isValid: false
     },
     cards: {
       value: [
@@ -49,12 +47,10 @@ const AddSet = props => {
 
   const recaptchaLoaded = () => {
     inputHandler("recaptcha", "Loaded", false);
-    console.log(formState);
   };
 
   const recaptchaVerify = () => {
     inputHandler("recaptcha", null, true);
-    console.log(formState);
   };
 
   const onRolesetSubmit = async event => {
@@ -69,7 +65,7 @@ const AddSet = props => {
       const formData = {
         title: formState.inputs.title.value,
         complexity: formState.inputs.complexity.value,
-        username: formState.inputs.username.value,
+        username: auth.username,
         desc: formState.inputs.desc.value,
         roles: roles
       };
@@ -126,16 +122,6 @@ const AddSet = props => {
             initialValid={true}
             value={formState.desc}
             onInput={inputHandler}
-          />
-          <Input
-            id="username"
-            type="text"
-            placeholder="Username"
-            label="Username"
-            value={formState.username}
-            onInput={inputHandler}
-            rules={[RULE_VALIDATOR_REQUIRED]}
-            errorMsg="Please enter your username."
           />
           <Text element="h3">Cards</Text>
           <Text>

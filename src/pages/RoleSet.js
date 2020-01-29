@@ -21,14 +21,14 @@ const RoleSet = props => {
           `https://onuw-backend.cmrnclffrd.now.sh/api/roleset/${id}`
         );
         setloadedRoleset(responseData.roleset);
-      } catch (error) {
-        console.log(error);
-        console.log("Loading Backup");
-        setloadedRoleset(
-          roleBackup.rolesets.find(r => {
-            return r.id === id;
-          })
-        );
+      } catch (err) {
+        // console.log(error);
+        // console.log("Loading Backup");
+        // setloadedRoleset(
+        //   roleBackup.rolesets.find(r => {
+        //     return r.id === id;
+        //   })
+        // );
       }
     };
     fetchData();
@@ -81,6 +81,9 @@ const RoleSet = props => {
         </ul>
       </React.Fragment>
     );
+  }
+  if (error) {
+    roleDetails = <p>{error}</p>;
   }
 
   return (

@@ -58,7 +58,7 @@ body {
   font-size: 4rem;
   line-height: 1.25;
   text-transform: capitalize;
-  color: #323a79; }
+  color: #384187; }
 
 .heading-secondary {
   margin-bottom: 1rem;
@@ -81,7 +81,7 @@ body {
 
 .link:link, .link:visited {
   text-decoration: none;
-  color: #323a79;
+  color: #384187;
   cursor: pointer; }
 
 .link:hover, .link:active {
@@ -218,10 +218,18 @@ body {
   .navbar__logo-image {
     display: block;
     height: 100%;
-    border-radius: .5rem; }
+    border-radius: 0.5rem; }
     @media (max-width: 56.25em) {
       .navbar__logo-image {
         float: right; } }
+  .navbar__auth {
+    margin-left: 2rem;
+    border-radius: 0.5rem;
+    background-color: #384187; }
+  .navbar__user {
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    text-transform: uppercase; }
 
 @media (max-width: 56.25em) {
   .navigation {
@@ -343,7 +351,7 @@ body {
     text-transform: capitalize; }
     .Card-Selector__dropdown:active, .Card-Selector__dropdown:focus {
       outline: none;
-      border: 1px solid #323a79;
+      border: 1px solid #384187;
       background: #ddd; }
 
 .Set-Creator {

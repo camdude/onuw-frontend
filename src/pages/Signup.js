@@ -42,12 +42,10 @@ const Signup = props => {
 
   const recaptchaLoaded = () => {
     inputHandler("recaptcha", "Loaded", false);
-    console.log(formState);
   };
 
   const recaptchaVerify = () => {
     inputHandler("recaptcha", null, true);
-    console.log(formState);
   };
 
   const onSignup = async event => {

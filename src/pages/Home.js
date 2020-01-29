@@ -43,18 +43,17 @@ const Home = () => {
               camdude@live.com.au
             </Text>
           </Text>
-          <Text>
+          <div className="paragraph">
             Ideas to implement:
             <ul className="Home__list">
-              <li>Allow users to sign up</li>
               <li>Add better error handling</li>
-              <li>Only users will have the ability to post new role sets</li>
+              <li>Imporve Athourization & Security</li>
               <li>Allow users to favourite rolesets</li>
               <li>Add a rating system</li>
               <li>Improve filter function</li>
               <li>Add page to explain each role</li>
             </ul>
-          </Text>
+          </div>
         </div>
       </main>
       <Footer />

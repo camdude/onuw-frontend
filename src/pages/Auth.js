@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import Navigation from "../layouts/Navigation";
 import Text from "../components/UIElements/Text";
@@ -8,8 +8,10 @@ import Card from "../components/UIElements/Card";
 import { useForm } from "../hooks/useForm";
 import { RULE_VALIDATOR_REQUIRED } from "../components/FormElements/validate";
 import { useHttpClient } from "../hooks/useHttpClient";
+import { AuthContext } from "../context/auth-context";
 
 const Auth = props => {
+  const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm({
     email: {
@@ -37,6 +39,9 @@ const Auth = props => {
         JSON.stringify(formData),
         { "Content-Type": "application/json" }
       );
+
+      auth.userId = response.user.id;
+      auth.username = response.user.username;
 
       props.history.push(`/`);
     } catch (error) {
