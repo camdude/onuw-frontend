@@ -4,6 +4,7 @@ import Navigation from "../layouts/Navigation";
 import Text from "../components/UIElements/Text";
 import Button from "../components/FormElements/Button";
 import Footer from "../layouts/Footer";
+import Paypal from "../components/Paypal";
 
 const Home = () => {
   return (
@@ -54,6 +55,7 @@ const Home = () => {
               <li>Add page to explain each role</li>
             </ul>
           </div>
+          <Paypal />
         </div>
       </main>
       <Footer />
