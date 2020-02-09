@@ -85,7 +85,7 @@ const AddSet = props => {
 
   return (
     <div className="AddSet">
-      <Navigation />
+      <Navigation notifMsg={error} closeNotif={clearError} />
       <main className="main-body">
         <Text element="h2">New Role Set</Text>
         <Text>

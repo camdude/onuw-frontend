@@ -1,0 +1,36 @@
+.notificationBar {
+  position: fixed;
+  top: 6.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  width: 100%;
+  background: $color-secondary-dark;
+  color: $color-black;
+
+  &__message {
+    color: inherit;
+    font-size: $default-font-size;
+    font-weight: 700;
+  }
+
+  &__action {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &--success {
+    background: $color-success;
+  }
+
+  &--warning {
+    background: $color-warning;
+  }
+
+  &--danger {
+    color: $color-white;
+    background: $color-danger;
+  }
+}

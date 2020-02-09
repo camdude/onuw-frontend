@@ -40,6 +40,8 @@ const Auth = props => {
         { "Content-Type": "application/json" }
       );
 
+      console.log(response);
+
       auth.userId = response.user.id;
       auth.username = response.user.username;
 
@@ -51,7 +53,7 @@ const Auth = props => {
 
   return (
     <div className="Auth">
-      <Navigation />
+      <Navigation notifMsg={error} closeNotif={clearError} />
       <main className="main-body">
         <form className="Login">
           <Card>

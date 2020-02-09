@@ -88,7 +88,7 @@ const RoleSet = props => {
 
   return (
     <div className="RoleSet">
-      <Navigation />
+      <Navigation notifMsg={error} closeNotif={clearError} />
       <main className="main-body">{roleDetails}</main>
       <Footer />
     </div>

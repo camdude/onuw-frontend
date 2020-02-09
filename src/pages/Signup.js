@@ -60,7 +60,7 @@ const Signup = props => {
         };
 
         const response = await sendRequest(
-          "https://onuw-backend.cmrnclffrd.now.sh/api/user/new",
+          `https://onuw-backend.cmrnclffrd.now.sh/api/user/new`,
           "POST",
           JSON.stringify(formData),
           { "Content-Type": "application/json" }
@@ -79,7 +79,7 @@ const Signup = props => {
 
   return (
     <div className="Signup">
-      <Navigation />
+      <Navigation notifMsg={error} closeNotif={clearError} />
       <main className="main-body">
         <form className="Signup">
           <Card>

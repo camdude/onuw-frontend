@@ -32,7 +32,7 @@ body {
 .main-body {
   margin: 0 12.5%;
   margin-top: 6.2rem;
-  padding: 4rem 0;
+  padding: 5rem 0;
   min-height: 80vh; }
   @media (max-width: 56.25em) {
     .main-body {
@@ -363,6 +363,30 @@ body {
   border-radius: 3px;
   padding: 2rem;
   background-color: #ddd; }
+
+.notificationBar {
+  position: fixed;
+  top: 6.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  width: 100%;
+  background: #cfba01;
+  color: #000; }
+  .notificationBar__message {
+    color: inherit;
+    font-size: 1.6rem;
+    font-weight: 700; }
+  .notificationBar__action:hover {
+    cursor: pointer; }
+  .notificationBar--success {
+    background: #50b04d; }
+  .notificationBar--warning {
+    background: #dd820a; }
+  .notificationBar--danger {
+    color: #fff;
+    background: #cc0000; }
 
 .loader,
 .loader:before,

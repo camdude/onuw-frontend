@@ -46,7 +46,7 @@ const SetList = () => {
 
   return (
     <div className="SetList">
-      <Navigation />
+      <Navigation notifMsg={error} closeNotif={clearError} />
       <main className="main-body">
         <Text element="h2">Role Sets</Text>
         {auth.userId && <Button to="/roleset/add">Add Role Set</Button>}
