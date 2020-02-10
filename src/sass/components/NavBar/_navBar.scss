@@ -22,8 +22,12 @@
 
   &__logo {
     flex-grow: 1;
-    font-size: 2.6rem;
     height: 3.7rem;
+    font-size: 2.6rem;
+
+    @include respond(tab-port) {
+      margin: 0 1rem;
+    }
   }
 
   &__logo-image {
@@ -34,17 +38,5 @@
     @include respond(tab-port) {
       float: right;
     }
-  }
-
-  &__auth {
-    margin-left: 2rem;
-    border-radius: 0.5rem;
-    background-color: $color-primary-light;
-  }
-
-  &__user {
-    padding: 0.5rem 1rem;
-    font-size: 2rem;
-    text-transform: uppercase;
   }
 }

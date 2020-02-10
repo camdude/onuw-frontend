@@ -88,6 +88,10 @@ body {
   text-decoration: underline;
   color: #cfba01; }
 
+.icon {
+  padding: .5rem;
+  font-size: 1.6rem; }
+
 .u-bold-text {
   font-weight: bold !important; }
 
@@ -213,8 +217,11 @@ body {
         margin-right: 2rem; } }
   .navbar__logo {
     flex-grow: 1;
-    font-size: 2.6rem;
-    height: 3.7rem; }
+    height: 3.7rem;
+    font-size: 2.6rem; }
+    @media (max-width: 56.25em) {
+      .navbar__logo {
+        margin: 0 1rem; } }
   .navbar__logo-image {
     display: block;
     height: 100%;
@@ -222,14 +229,6 @@ body {
     @media (max-width: 56.25em) {
       .navbar__logo-image {
         float: right; } }
-  .navbar__auth {
-    margin-left: 2rem;
-    border-radius: 0.5rem;
-    background-color: #384187; }
-  .navbar__user {
-    padding: 0.5rem 1rem;
-    font-size: 2rem;
-    text-transform: uppercase; }
 
 @media (max-width: 56.25em) {
   .navigation {
@@ -304,6 +303,55 @@ body {
     color: #F8DF01; }
   .sidebar__list {
     list-style: none; }
+
+.userProfile {
+  position: relative;
+  border-radius: 0.5rem;
+  background-color: #384187; }
+  .userProfile__body {
+    padding: 0.5rem 1rem; }
+  .userProfile__login {
+    display: inline-block;
+    color: #cfba01;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none; }
+  .userProfile__name {
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 2rem;
+    text-transform: uppercase; }
+  .userProfile__dropdown {
+    display: inline-block;
+    border-radius: 0.5rem;
+    padding: 0 1rem; }
+    .userProfile__dropdown:hover {
+      background-color: #262C5C;
+      cursor: pointer; }
+  .userProfile__logout {
+    color: #cfba01;
+    font-size: 1rem;
+    text-transform: uppercase; }
+
+.dropdown {
+  position: absolute;
+  border-radius: 0 0 0.5rem 0.5rem;
+  width: 100%;
+  background: #ddd;
+  list-style: none; }
+  .dropdown__listItem {
+    padding: 0.5rem 1.5rem;
+    color: black; }
+    .dropdown__listItem:not(:last-child) {
+      border-bottom: 1px solid #aaa; }
+  .dropdown__item {
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer; }
+    .dropdown__item:hover {
+      color: #cfba01; }
 
 .RoleCard {
   display: inline-block; }

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Navigation from "./Navigation";
 import { AuthContext } from "../../context/auth-context";
+import UserProfile from "./UserProfile";
 
 const NavBar = props => {
   const auth = useContext(AuthContext);
@@ -25,13 +26,7 @@ const NavBar = props => {
       </Link>
       <Navigation>{props.children}</Navigation>
       <div className="navbar__auth">
-        {auth.username ? (
-          <div className="navbar__user">{auth.username}</div>
-        ) : (
-          <Link to="/users/login" className="navItem__link">
-            Login
-          </Link>
-        )}
+        <UserProfile user={auth.username} />
       </div>
       <Sidebar open={sidebarOpen} clicked={toggleSidebar} logo={props.logo}>
         {props.children}

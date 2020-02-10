@@ -34,18 +34,15 @@ const Auth = props => {
       };
 
       const response = await sendRequest(
-        "https://onuw-backend.cmrnclffrd.now.sh/api/user/login",
+        `${process.env.REACT_APP_API_URL}/api/user/login`,
         "POST",
         JSON.stringify(formData),
         { "Content-Type": "application/json" }
       );
 
-      console.log(response);
+      auth.login(response.user.id, response.user.username);
 
-      auth.userId = response.user.id;
-      auth.username = response.user.username;
-
-      props.history.push(`/`);
+      props.history.push("/");
     } catch (error) {
       console.log(error);
     }

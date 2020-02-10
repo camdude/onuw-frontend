@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -9,23 +9,47 @@ import Auth from "./pages/Auth";
 import Signup from "./pages/Signup";
 import { AuthContext } from "./context/auth-context";
 
-const App = () => {
+const App = props => {
+  const [userId, setUserId] = useState(false);
+  const [username, setUsername] = useState(false);
+
+  const login = useCallback((uid, uname) => {
+    setUserId(uid);
+    setUsername(uname);
+  }, []);
+
+  const logout = useCallback(() => {
+    setUserId(null);
+    setUsername(null);
+  }, []);
+
   return (
     <AuthContext.Provider
       value={{
-        userId: null,
-        username: null
+        userId: userId,
+        username: username,
+        login: login,
+        logout: logout
       }}
     >
-      <Switch>
-        <Route path="/users/signup" component={Signup} />
-        <Route path="/users/login" component={Auth} />
-        <Route path="/roleset/add" component={AddSet} />
-        <Route path="/roleset/all" component={SetList} />
-        <Route path="/roleset/:sid" component={RoleSet} />
-        <Route path="/" component={Home} />
-        <Redirect to="/" />
-      </Switch>
+      {userId ? (
+        <Switch>
+          <Route path="/roleset/add" component={AddSet} />
+          <Route path="/roleset/all" component={SetList} />
+          <Route path="/roleset/:sid" component={RoleSet} />
+          <Route path="/" component={Home} />
+          <Redirect to="/" />
+        </Switch>
+      ) : (
+        <Switch>
+          <Route path="/users/signup" component={Signup} />
+          <Route path="/users/login" component={Auth} />
+          <Route path="/roleset/all" component={SetList} />
+          <Route path="/roleset/:sid" component={RoleSet} />
+          <Route path="/" component={Home} />
+          <Redirect to="/" />
+        </Switch>
+      )}
     </AuthContext.Provider>
   );
 };
