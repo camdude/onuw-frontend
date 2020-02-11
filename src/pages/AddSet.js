@@ -71,7 +71,7 @@ const AddSet = props => {
       };
 
       const response = await sendRequest(
-        `${process.env.REACT_APP_API_URL}/api/roleset`,
+        `https://onuw-backend.cmrnclffrd.now.sh/api/roleset`,
         "POST",
         JSON.stringify(formData),
         { "Content-Type": "application/json" }

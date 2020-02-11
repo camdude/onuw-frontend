@@ -29,7 +29,7 @@ const SetList = () => {
     const fetchData = async () => {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_API_URL}/api/roleset`
+          `https://onuw-backend.cmrnclffrd.now.sh/api/roleset`
         );
         let sortedRolesets = responseData.rolesets.sort((a, b) =>
           compare(a.players, b.players)
