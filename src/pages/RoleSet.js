@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import Navigation from "../layouts/Navigation";
 import Text from "../components/UIElements/Text";
 import RoleCard from "../components/RoleCard";
-import roleBackup from "../assets/roles.json";
 import { useHttpClient } from "../hooks/useHttpClient";
 import Spinner from "../components/UIElements/Spinner";
 import Footer from "../layouts/Footer";
@@ -23,12 +22,6 @@ const RoleSet = props => {
         setloadedRoleset(responseData.roleset);
       } catch (err) {
         console.log(error);
-        // console.log("Loading Backup");
-        // setloadedRoleset(
-        //   roleBackup.rolesets.find(r => {
-        //     return r.id === id;
-        //   })
-        // );
       }
     };
     fetchData();

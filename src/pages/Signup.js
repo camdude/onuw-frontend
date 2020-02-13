@@ -17,6 +17,14 @@ import { useState } from "react";
 const Signup = props => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm({
+    firstName: {
+      value: "",
+      isValid: false
+    },
+    lastName: {
+      value: "",
+      isValid: false
+    },
     username: {
       value: "",
       isValid: false
@@ -54,6 +62,8 @@ const Signup = props => {
     if (formState.inputs.password.value === formState.inputs.confirm.value) {
       try {
         const formData = {
+          firstName: formState.inputs.firstName.value,
+          lastName: formState.inputs.lastName.value,
           username: formState.inputs.username.value,
           email: formState.inputs.email.value,
           password: formState.inputs.password.value
@@ -85,6 +95,26 @@ const Signup = props => {
           <Card>
             <Text element="h2">Signup</Text>
             <p className="paragraph Signup__error">{errorMsg}</p>
+            <Input
+              id="firstName"
+              type="text"
+              placeholder="First Name"
+              label="First Name"
+              value={formState.username}
+              onInput={inputHandler}
+              rules={[RULE_VALIDATOR_REQUIRED]}
+              errorMsg="Please enter your first name."
+            />
+            <Input
+              id="lastName"
+              type="text"
+              placeholder="Last Name"
+              label="Last Name"
+              value={formState.username}
+              onInput={inputHandler}
+              rules={[RULE_VALIDATOR_REQUIRED]}
+              errorMsg="Please enter your last name."
+            />
             <Input
               id="username"
               type="text"

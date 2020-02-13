@@ -21,9 +21,11 @@ const UserProfile = props => {
   if (dropdownOpen) {
     dropdown = (
       <ul className="dropdown">
-        {/* <li className="dropdown__listItem">
-          <Link className="dropdown__item" to="/users/profile">Profile</Link>
-        </li> */}
+        <li className="dropdown__listItem">
+          <Link className="dropdown__item" to="/users/profile">
+            Your Profile
+          </Link>
+        </li>
         <li className="dropdown__listItem">
           <div className="dropdown__item" onClick={onLogout}>
             Logout
