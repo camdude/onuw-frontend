@@ -60,7 +60,7 @@ const Signup = props => {
         };
 
         const response = await sendRequest(
-          `https://onuw-backend.cmrnclffrd.now.sh/api/user/new`,
+          `${process.env.REACT_APP_API_URL}/api/user/new`,
           "POST",
           JSON.stringify(formData),
           { "Content-Type": "application/json" }
