@@ -68,7 +68,7 @@ const RoleSet = props => {
             ? loadedRoleset.roles.map((r, index) => {
                 return (
                   <li key={index} className="RoleList__role">
-                    <RoleCard card={r} showImg={auth.perms===1}/>
+                    <RoleCard card={r} showImg={auth.userData.perms===1}/>
                   </li>
                 );
               })
