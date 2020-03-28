@@ -1,13 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import Sidebar from "./Sidebar";
 import Navigation from "./Navigation";
-import { AuthContext } from "../../context/auth-context";
 import UserProfile from "./UserProfile";
 
 const NavBar = props => {
-  const auth = useContext(AuthContext);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -26,7 +24,7 @@ const NavBar = props => {
       </Link>
       <Navigation>{props.children}</Navigation>
       <div className="navbar__auth">
-        <UserProfile user={auth.username} />
+        <UserProfile />
       </div>
       <Sidebar open={sidebarOpen} clicked={toggleSidebar} logo={props.logo}>
         {props.children}

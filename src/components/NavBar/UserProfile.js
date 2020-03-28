@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Button from "../FormElements/Button";
 import { useState } from "react";
 import { AuthContext } from "../../context/auth-context";
 
@@ -38,10 +37,10 @@ const UserProfile = props => {
   return (
     <div className="userProfile">
       <div className="userProfile__body">
-        {props.user ? (
+        {auth.isLoggedIn ? (
           <div className="userProfile__profile">
             <i className="icon fa fa-user-circle" />
-            <div className="userProfile__name">{props.user}</div>
+            <div className="userProfile__name">{auth.userData.username}</div>
             <div className="userProfile__dropdown" onClick={openDropdown}>
               <i className="icon fa fa-caret-down" />
             </div>

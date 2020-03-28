@@ -9,53 +9,48 @@ import Auth from "./pages/Auth";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import { AuthContext } from "./context/auth-context";
+import { useAuth } from "./hooks/auth-hook";
 
 const App = props => {
-  const [userId, setUserId] = useState(false);
-  const [username, setUsername] = useState(false);
-  const [perms, setPerms] = useState(false);
+  const { token, login, logout, userId, userData } = useAuth();
 
-  const login = useCallback((uid, uname, uperms) => {
-    setUserId(uid);
-    setUsername(uname);
-    setPerms(uperms);
-  }, []);
+  let routes;
 
-  const logout = useCallback(() => {
-    setUserId(null);
-    setUsername(null);
-    setPerms(null);
-  }, []);
+  if (token) {
+    routes = (
+      <Switch>
+        <Route path="/roleset/add" component={AddSet} />
+        <Route path="/roleset/all" component={SetList} />
+        <Route path="/roleset/:sid" component={RoleSet} />
+        <Route path="/users/profile" component={Profile} />
+        <Route path="/" component={Home} />
+        <Redirect to="/" />
+      </Switch>
+    );
+  } else {
+    routes = (
+      <Switch>
+        <Route path="/roleset/all" component={SetList} />
+        <Route path="/roleset/:sid" component={RoleSet} />
+        <Route path="/users/signup" component={Signup} />
+        <Route path="/users/login" component={Auth} />
+        <Route path="/" component={Home} />
+        <Redirect to="/" />
+      </Switch>
+    );
+  }
 
   return (
     <AuthContext.Provider
       value={{
+        isLoggedIn: !!token,
         userId: userId,
-        username: username,
-        perms: perms,
+        userData: userData,
         login: login,
         logout: logout
       }}
     >
-      {userId ? (
-        <Switch>
-          <Route path="/roleset/add" component={AddSet} />
-          <Route path="/roleset/all" component={SetList} />
-          <Route path="/roleset/:sid" component={RoleSet} />
-          <Route path="/users/profile" component={Profile} />
-          <Route path="/" component={Home} />
-          <Redirect to="/" />
-        </Switch>
-      ) : (
-        <Switch>
-          <Route path="/roleset/all" component={SetList} />
-          <Route path="/roleset/:sid" component={RoleSet} />
-          <Route path="/users/signup" component={Signup} />
-          <Route path="/users/login" component={Auth} />
-          <Route path="/" component={Home} />
-          <Redirect to="/" />
-        </Switch>
-      )}
+      {routes}
     </AuthContext.Provider>
   );
 };
