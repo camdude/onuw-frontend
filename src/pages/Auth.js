@@ -40,7 +40,7 @@ const Auth = props => {
         { "Content-Type": "application/json" }
       );
 
-      auth.login(response.user.id, response.user.username);
+      auth.login(response.user.id, response.user.username, response.user.perms);
 
       props.history.push("/");
     } catch (error) {

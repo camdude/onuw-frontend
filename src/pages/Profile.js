@@ -30,13 +30,24 @@ const Home = () => {
       <Navigation />
       <main className="main-body">
         <Text element="h2">Your Profile</Text>
-        {userData && (
-          <React.Fragment>
-            <Text>Name: {userData.firstName} {userData.lastName}</Text>
-            <Text>Username: {userData.username}</Text>
-            <Text>Email: {userData.email}</Text>
-          </React.Fragment>
-        )}
+        <table>
+          <tbody>
+            <tr>
+              <td className="u-bold-text">Name: </td>
+              <td>
+                {userData.firstName} {userData.lastName}
+              </td>
+            </tr>
+            <tr>
+              <td className="u-bold-text">Username: </td>
+              <td>{userData.username}</td>
+            </tr>
+            <tr>
+              <td className="u-bold-text">Email: </td>
+              <td>{userData.email}</td>
+            </tr>
+          </tbody>
+        </table>
       </main>
       <Footer />
     </div>

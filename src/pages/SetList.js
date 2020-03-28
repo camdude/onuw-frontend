@@ -28,6 +28,7 @@ const SetList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log(process.env.REACT_APP_API_URL);
         const responseData = await sendRequest(
           `${process.env.REACT_APP_API_URL}/api/roleset`
         );

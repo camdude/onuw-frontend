@@ -13,15 +13,18 @@ import { AuthContext } from "./context/auth-context";
 const App = props => {
   const [userId, setUserId] = useState(false);
   const [username, setUsername] = useState(false);
+  const [perms, setPerms] = useState(false);
 
-  const login = useCallback((uid, uname) => {
+  const login = useCallback((uid, uname, uperms) => {
     setUserId(uid);
     setUsername(uname);
+    setPerms(uperms);
   }, []);
 
   const logout = useCallback(() => {
     setUserId(null);
     setUsername(null);
+    setPerms(null);
   }, []);
 
   return (
@@ -29,6 +32,7 @@ const App = props => {
       value={{
         userId: userId,
         username: username,
+        perms: perms,
         login: login,
         logout: logout
       }}

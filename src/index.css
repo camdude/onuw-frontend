@@ -40,6 +40,12 @@ body {
       margin-top: 5.7rem;
       padding: 2rem 0; } }
 
+table {
+  table-layout: fixed; }
+
+td {
+  min-width: 20rem; }
+
 body {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import Navigation from "../layouts/Navigation";
 import Text from "../components/UIElements/Text";
@@ -6,8 +6,10 @@ import RoleCard from "../components/RoleCard";
 import { useHttpClient } from "../hooks/useHttpClient";
 import Spinner from "../components/UIElements/Spinner";
 import Footer from "../layouts/Footer";
+import { AuthContext } from "../context/auth-context";
 
 const RoleSet = props => {
+  const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [loadedRoleset, setloadedRoleset] = useState();
 
@@ -66,7 +68,7 @@ const RoleSet = props => {
             ? loadedRoleset.roles.map((r, index) => {
                 return (
                   <li key={index} className="RoleList__role">
-                    <RoleCard card={r} />
+                    <RoleCard card={r} showImg={auth.perms===1}/>
                   </li>
                 );
               })
