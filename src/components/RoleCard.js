@@ -10,7 +10,9 @@ const RoleCard = props => {
           alt={props.card}
         />
       ) : (
-      <p>{props.card}</p>
+        <div className="RoleCard__cardBack">
+          <p className="RoleCard__text">{props.card}</p>
+        </div>
       )}
     </div>
   );

@@ -5,4 +5,18 @@
     width: 10rem;
     border-radius: 1rem;
   }
+
+  &__cardBack {
+    padding: 2rem 3rem;
+    border-radius: 4px;
+    background: $color-secondary;
+  }
+
+  &__text {
+    color: $color-tertiary;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center;
+  }
 }

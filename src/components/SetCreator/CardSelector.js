@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import Button from "../FormElements/Button";
+import { AuthContext } from "../../context/auth-context";
 
 const cards = [
   "alien",
@@ -86,6 +87,8 @@ const cards = [
 ];
 
 const CardSelector = props => {
+  const auth = useContext(AuthContext);
+
   const onRemoveHandler = event => {
     event.preventDefault();
     props.onRemove(props.index);
@@ -94,14 +97,17 @@ const CardSelector = props => {
   return (
     <div className="Card-Selector">
       <div className="Card-Selector__index">{props.index + 1}</div>
-      <img
-        className="Card-Selector__image"
-        src={require(`../../assets/role_cards/${props.selected.replace(
-          / /g,
-          "_"
-        )}.png`)}
-        alt=""
-      />
+      {auth.userData.perms === 1 && (
+        <img
+          className="Card-Selector__image"
+          src={require(`../../assets/role_cards/${props.selected.replace(
+            / /g,
+            "_"
+          )}.png`)}
+          alt=""
+        />
+      )}
+
       <select
         id={props.index}
         className="Card-Selector__dropdown"
@@ -112,7 +118,9 @@ const CardSelector = props => {
           <option key={c}>{c}</option>
         ))}
       </select>
-      <Button onClick={onRemoveHandler} disabled={props.removeDisabled}>&#8722;</Button>
+      <Button onClick={onRemoveHandler} disabled={props.removeDisabled}>
+        &#8722;
+      </Button>
     </div>
   );
 };

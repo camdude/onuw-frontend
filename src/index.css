@@ -364,6 +364,16 @@ body {
   .RoleCard__img {
     width: 10rem;
     border-radius: 1rem; }
+  .RoleCard__cardBack {
+    padding: 2rem 3rem;
+    border-radius: 4px;
+    background: #F8DF01; }
+  .RoleCard__text {
+    color: #020300;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center; }
 
 .RoleSetCard {
   margin-bottom: 2rem;

@@ -34,7 +34,7 @@ export const useAuth = () => {
     setToken(null);
     setTokenExpirationDate(null);
     setUserId(null);
-    setUserData(null);
+    setUserData(0);
     localStorage.removeItem("userData");
   }, []);
 

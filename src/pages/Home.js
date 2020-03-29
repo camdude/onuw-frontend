@@ -41,13 +41,12 @@ const Home = () => {
             Feedback would be much appreciated, so if you find any issues or
             have ideas of how this tool could be improved, please send them to{" "}
             <Text element="a" href="mailto:camdude@live.com.au">
-              camdude@live.com.au
+              here.
             </Text>
           </Text>
           <div className="paragraph">
             Ideas to implement:
             <ul className="Home__list">
-              <li>Imporve Athourization & Security</li>
               <li>Allow users to favourite rolesets</li>
               <li>Add a rating system</li>
               <li>Improve filter function</li>
