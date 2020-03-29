@@ -64,7 +64,7 @@ const Auth = props => {
               value={formState.email}
               onInput={inputHandler}
               rules={[RULE_VALIDATOR_REQUIRED]}
-              errorMsg="Please enter your username."
+              errorMsg="Please enter your email."
             />
             <Input
               id="password"
