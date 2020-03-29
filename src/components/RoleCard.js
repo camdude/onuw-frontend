@@ -11,7 +11,7 @@ const RoleCard = props => {
         />
       ) : (
         <div className="RoleCard__cardBack">
-          <p className="RoleCard__text">{props.card}</p>
+          <p className="RoleCard__text">{props.card.replace("_", " ")}</p>
         </div>
       )}
     </div>

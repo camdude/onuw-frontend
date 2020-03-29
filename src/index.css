@@ -365,11 +365,13 @@ body {
     width: 10rem;
     border-radius: 1rem; }
   .RoleCard__cardBack {
+    width: 25rem;
     padding: 2rem 3rem;
+    border: 2px solid #262C5C;
     border-radius: 4px;
     background: #F8DF01; }
   .RoleCard__text {
-    color: #020300;
+    color: #262C5C;
     font-size: 1.8rem;
     font-weight: 700;
     text-transform: capitalize;

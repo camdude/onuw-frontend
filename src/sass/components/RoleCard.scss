@@ -7,13 +7,15 @@
   }
 
   &__cardBack {
+    width: 25rem;
     padding: 2rem 3rem;
+    border: 2px solid $color-primary;
     border-radius: 4px;
     background: $color-secondary;
   }
 
   &__text {
-    color: $color-tertiary;
+    color: $color-primary;
     font-size: 1.8rem;
     font-weight: 700;
     text-transform: capitalize;

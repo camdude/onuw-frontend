@@ -6,9 +6,7 @@ const Footer = () => {
   return (
     <div className="Footer">
       <Text>
-        This website is in no way affiliated with or endorsed by Bezier Games.
-        All characters, artwork and related indicia are trademarks of and Bezier
-        Games. All Rights Reserved.
+        Designed by Cameron Clifford
       </Text>
     </div>
   );
