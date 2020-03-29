@@ -67,12 +67,14 @@ body {
   color: #384187; }
 
 .heading-secondary {
+  display: inline-block;
   margin-bottom: 1rem;
   font-size: 3rem;
   text-transform: capitalize;
   color: #cfba01; }
 
 .heading-tertiary {
+  display: inline-block;
   margin-bottom: .5rem;
   font-size: 1.8rem;
   text-transform: uppercase;
@@ -96,7 +98,7 @@ body {
 
 .icon {
   padding: .5rem;
-  font-size: 1.6rem; }
+  font-size: inherit; }
 
 .u-bold-text {
   font-weight: bold !important; }
@@ -425,6 +427,24 @@ body {
   border: 1px solid #262C5C;
   padding: 1rem; }
 
+.Bookmark {
+  font-size: 3rem;
+  color: #aaa; }
+  .Bookmark--favourited {
+    font-size: 3rem;
+    color: #384187; }
+    .Bookmark--favourited:hover {
+      color: #aaa;
+      cursor: pointer; }
+    .Bookmark--favourited:active, .Bookmark--favourited:focus {
+      transform: translateY(1px); }
+  .Bookmark:hover {
+    color: #cfba01;
+    cursor: pointer;
+    transform: translateY(-2px); }
+  .Bookmark:active, .Bookmark:focus {
+    transform: translateY(1px); }
+
 .Card {
   border-radius: 3px;
   padding: 2rem;
@@ -577,13 +597,16 @@ body {
   margin-top: 2rem;
   border-top: 1px solid #333; }
 
+.RoleSet__actions {
+  float: right; }
+
 .RoleSet__stats {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 1rem;
-  padding: .8rem;
-  border-radius: .5rem;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
   background-color: #ddd; }
 
 .RoleSet__statElement {
@@ -595,7 +618,7 @@ body {
   list-style: none; }
   .RoleList__role {
     display: inline-block;
-    margin: .5rem; }
+    margin: 0.5rem; }
 
 .Signup__error {
   color: red; }

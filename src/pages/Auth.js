@@ -39,8 +39,7 @@ const Auth = props => {
         JSON.stringify(formData),
         { "Content-Type": "application/json" }
       );
-
-      console.log(response);
+      
       auth.login(response.userId, response.token, response.userData);
 
       props.history.push("/");

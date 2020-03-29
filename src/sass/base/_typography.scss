@@ -25,6 +25,7 @@ body {
 }
 
 .heading-secondary {
+    display: inline-block;
     margin-bottom: 1rem;
     font-size: 3rem;
     text-transform: capitalize;
@@ -32,6 +33,7 @@ body {
 }
 
 .heading-tertiary {
+    display: inline-block;
     margin-bottom: .5rem;
     font-size: 1.8rem;
     text-transform: uppercase;
@@ -65,6 +67,5 @@ body {
 
 .icon {
     padding: .5rem;
-    font-size: $default-font-size;
-    
+    font-size: inherit;
 }

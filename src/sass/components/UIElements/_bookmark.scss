@@ -1,0 +1,30 @@
+.Bookmark {
+  font-size: 3rem;
+  color: $color-grey;
+
+  &--favourited {
+    font-size: 3rem;
+    color: $color-primary-light;
+
+    &:hover {
+      color: $color-grey;
+      cursor: pointer;
+    }
+
+    &:active,
+    &:focus {
+      transform: translateY(1px);
+    }
+  }
+
+  &:hover {
+    color: $color-secondary-dark;
+    cursor: pointer;
+    transform: translateY(-2px);
+  }
+
+  &:active,
+  &:focus {
+    transform: translateY(1px);
+  }
+}

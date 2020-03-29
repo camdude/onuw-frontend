@@ -7,7 +7,7 @@ import { useFilter } from "../hooks/useFilter";
 const Filter = props => {
   const data = props.data;
   const [filterState, inputHandler] = useFilter({
-    players: 3,
+    players: "all",
     complexity: "all",
     expansions: [
       "original",

@@ -28,7 +28,6 @@ const SetList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(process.env.REACT_APP_API_URL);
         const responseData = await sendRequest(
           `${process.env.REACT_APP_API_URL}/api/roleset`
         );
@@ -50,6 +49,7 @@ const SetList = () => {
       <Navigation notifMsg={error} closeNotif={clearError} />
       <main className="main-body">
         <Text element="h2">Role Sets</Text>
+        <br />
         {auth.userId && <Button to="/roleset/add">Add Role Set</Button>}
         {!isLoading && loadedRolesets ? (
           <Filter data={loadedRolesets} />

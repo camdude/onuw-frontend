@@ -2,7 +2,7 @@ import React from "react";
 
 import NavBar from "../components/NavBar/NavBar";
 import NavItem from "../components/NavBar/NavItem";
-import Icon from "../assets/icon.png";
+import Icon from "../assets/icons/logo.png";
 import NotificationBar from "../components/UIElements/NotificationBar";
 
 const Navigation = props => {
