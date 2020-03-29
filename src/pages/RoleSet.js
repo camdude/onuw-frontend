@@ -25,16 +25,18 @@ const RoleSet = props => {
         );
         setloadedRoleset(responseRolesetData.roleset);
 
-        // check favourite
-        const responseUserData = await sendRequest(
-          `${process.env.REACT_APP_API_URL}/api/user/${auth.userId}`
-        );
+        if (auth.isLoggedIn) {
+          // check favourite
+          const responseUserData = await sendRequest(
+            `${process.env.REACT_APP_API_URL}/api/user/${auth.userId}`
+          );
 
-        setIsFavourite(
-          responseUserData.user.favourites.find(fav => {
-            return fav === id;
-          })
-        );
+          setIsFavourite(
+            responseUserData.user.favourites.find(fav => {
+              return fav === id;
+            })
+          );
+        }
       } catch (err) {
         console.log(err);
       }
@@ -43,28 +45,27 @@ const RoleSet = props => {
   }, []);
 
   const toggleBookmark = () => {
-    if (!isFavourite) {
       const fetchData = async () => {
         try {
           const data = {
             userId: auth.userId,
-            fav: id
+            favId: id,
+            favourite: !isFavourite
           };
 
           const response = await sendRequest(
-            `${process.env.REACT_APP_API_URL}/api/user/addFavourite`,
+            `${process.env.REACT_APP_API_URL}/api/user/favourite`,
             "POST",
             JSON.stringify(data),
             { "Content-Type": "application/json" }
           );
 
-          setIsFavourite(true);
+          setIsFavourite(!isFavourite);
         } catch (err) {
           console.log(err);
         }
       };
       fetchData();
-    }
   };
 
   let roleDetails = <Spinner />;
