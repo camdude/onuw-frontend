@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import { AuthContext } from "./context/auth-context";
 import { useAuth } from "./hooks/auth-hook";
+import Collection from "./pages/Collection";
 
 const App = props => {
   const { token, login, logout, userId, userData } = useAuth();
@@ -19,9 +20,11 @@ const App = props => {
   if (token) {
     routes = (
       <Switch>
+        <Route path="/collection" component={Collection} />
         <Route path="/roleset/add" component={AddSet} />
         <Route path="/roleset/all" component={SetList} />
         <Route path="/roleset/:sid" component={RoleSet} />
+        <Route path="/collection" component={Collection} />
         <Route path="/users/profile" component={Profile} />
         <Route path="/" component={Home} />
         <Redirect to="/" />
