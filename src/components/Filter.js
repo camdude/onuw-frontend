@@ -7,7 +7,7 @@ import { useFilter } from "../hooks/useFilter";
 const Filter = props => {
   const data = props.data;
   const [filterState, inputHandler] = useFilter({
-    players: 0,
+    players: 3,
     complexity: "all",
     expansions: [
       "original",
@@ -64,16 +64,35 @@ const Filter = props => {
     <div className="Filter">
       <div className="Filter__controls">
         <div className="form-group">
-          <input
+        <select
             className="form-group__input"
             name="players"
-            type="number"
             value={filterState.players}
             onChange={onInputChangeHandler}
-          />
+          >
+            <option value="all">All (3+)</option>
+            <option value="3">3 Players</option>
+            <option value="4">4 Players</option>
+            <option value="5">5 Players</option>
+            <option value="6">6 Players</option>
+            <option value="7">7 Players</option>
+            <option value="8">8 Players</option>
+            <option value="9">9 Players</option>
+            <option value="10">10 Players</option>
+            <option value="11">11 Players</option>
+            <option value="12">12 Players</option>
+            <option value="13">13 Players</option>
+            <option value="14">14 Players</option>
+            <option value="15">15 Players</option>
+            <option value="16">16 Players</option>
+            <option value="17">17 Players</option>
+            <option value="18">18 Players</option>
+            <option value="19">19 Players</option>
+            <option value="20">20 Players</option>
+          </select>
           <div className="form-group__details">
             <label className="form-group__label" htmlFor={props.id}>
-              Players - (values less than 3 will show all)
+              Players
             </label>
           </div>
         </div>
