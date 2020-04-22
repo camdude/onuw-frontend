@@ -59,7 +59,6 @@ const Home = () => {
           <div className="paragraph">
             Ideas to implement:
             <ul className="Home__list">
-              <li>Allow users to favourite rolesets</li>
               <li>Add a rating system</li>
               <li>Improve filter function</li>
               <li>Add page to explain each role</li>

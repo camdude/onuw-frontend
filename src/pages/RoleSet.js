@@ -9,7 +9,7 @@ import Footer from "../layouts/Footer";
 import { AuthContext } from "../context/auth-context";
 import Bookmark from "../components/UIElements/Bookmark";
 
-const RoleSet = props => {
+const RoleSet = (props) => {
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [loadedRoleset, setloadedRoleset] = useState();
@@ -32,7 +32,7 @@ const RoleSet = props => {
           );
 
           setIsFavourite(
-            responseUserData.user.favourites.find(fav => {
+            responseUserData.user.favourites.find((fav) => {
               return fav === id;
             })
           );
@@ -45,27 +45,30 @@ const RoleSet = props => {
   }, []);
 
   const toggleBookmark = () => {
-      const fetchData = async () => {
-        try {
-          const data = {
-            userId: auth.userId,
-            favId: id,
-            favourite: !isFavourite
-          };
+    const fetchData = async () => {
+      try {
+        const data = {
+          userId: auth.userId,
+          favId: id,
+          favourite: !isFavourite,
+        };
 
-          const response = await sendRequest(
-            `${process.env.REACT_APP_API_URL}/api/user/favourite`,
-            "POST",
-            JSON.stringify(data),
-            { "Content-Type": "application/json" }
-          );
+        const response = await sendRequest(
+          `${process.env.REACT_APP_API_URL}/api/user/favourite`,
+          "POST",
+          JSON.stringify(data),
+          {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + auth.token
+          }
+        );
 
-          setIsFavourite(!isFavourite);
-        } catch (err) {
-          console.log(err);
-        }
-      };
-      fetchData();
+        setIsFavourite(!isFavourite);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
   };
 
   let roleDetails = <Spinner />;
@@ -109,8 +112,8 @@ const RoleSet = props => {
           <span className="u-bold-text">Cards: </span>
         </Text>
         <ul className="RoleList">
-          {loadedRoleset.roles
-            ? loadedRoleset.roles.map((r, index) => {
+          {loadedRoleset.cards
+            ? loadedRoleset.cards.map((r, index) => {
                 return (
                   <li key={index} className="RoleList__role">
                     <RoleCard card={r} showImg={auth.userData.perms === 1} />

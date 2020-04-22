@@ -76,8 +76,6 @@ const Signup = props => {
           { "Content-Type": "application/json" }
         );
 
-        console.log(response);
-
         props.history.push(`/roleset/all`);
       } catch (error) {
         console.log(error);

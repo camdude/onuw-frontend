@@ -49,6 +49,7 @@ const App = props => {
         isLoggedIn: !!token,
         userId: userId,
         userData: userData,
+        token: token,
         login: login,
         logout: logout
       }}

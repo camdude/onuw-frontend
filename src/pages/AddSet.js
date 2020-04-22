@@ -12,21 +12,21 @@ import { useForm } from "../hooks/useForm";
 import Footer from "../layouts/Footer";
 import { AuthContext } from "../context/auth-context";
 
-const AddSet = props => {
+const AddSet = (props) => {
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm({
     title: {
       value: "",
-      isValid: false
+      isValid: false,
     },
     complexity: {
       value: "",
-      isValid: false
+      isValid: false,
     },
     desc: {
       value: "",
-      isValid: true
+      isValid: true,
     },
     cards: {
       value: [
@@ -35,14 +35,14 @@ const AddSet = props => {
         "robber",
         "troublemaker",
         "drunk",
-        "tanner"
+        "tanner",
       ],
-      isValid: true
+      isValid: true,
     },
     recaptcha: {
       value: null,
-      isValid: false
-    }
+      isValid: false,
+    },
   });
 
   const recaptchaLoaded = () => {
@@ -53,7 +53,7 @@ const AddSet = props => {
     inputHandler("recaptcha", null, true);
   };
 
-  const onRolesetSubmit = async event => {
+  const onRolesetSubmit = async (event) => {
     event.preventDefault();
 
     const roles = formState.inputs.cards.value;
@@ -65,16 +65,19 @@ const AddSet = props => {
       const formData = {
         title: formState.inputs.title.value,
         complexity: formState.inputs.complexity.value,
-        username: auth.username,
+        username: auth.userData.username,
         desc: formState.inputs.desc.value,
-        roles: roles
+        roles: roles,
       };
 
       const response = await sendRequest(
         `${process.env.REACT_APP_API_URL}/api/roleset`,
         "POST",
         JSON.stringify(formData),
-        { "Content-Type": "application/json" }
+        {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + auth.token
+        }
       );
 
       props.history.push(`/roleset/${response.roleset.id}`);
