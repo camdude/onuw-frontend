@@ -5,7 +5,7 @@ import Navigation from "../layouts/Navigation";
 import Text from "../components/UIElements/Text";
 import Input from "../components/FormElements/Input";
 import Button from "../components/FormElements/Button";
-import { RULE_VALIDATOR_REQUIRED } from "../components/FormElements/validate";
+import { RULE_VALIDATOR_REQUIRE } from "../components/FormElements/validate";
 import SetCreator from "../components/SetCreator/SetCreator";
 import { useHttpClient } from "../hooks/useHttpClient";
 import { useForm } from "../hooks/useForm";
@@ -103,7 +103,7 @@ const AddSet = (props) => {
             label="Role Set Title"
             value={formState.title}
             onInput={inputHandler}
-            rules={[RULE_VALIDATOR_REQUIRED]}
+            rules={[RULE_VALIDATOR_REQUIRE()]}
             errorMsg="Please enter a title."
           />
           <Input
@@ -115,7 +115,7 @@ const AddSet = (props) => {
             initialValue="simple"
             value={formState.complexity}
             onInput={inputHandler}
-            rules={[RULE_VALIDATOR_REQUIRED]}
+            rules={[RULE_VALIDATOR_REQUIRE()]}
           />
           <Input
             id="desc"

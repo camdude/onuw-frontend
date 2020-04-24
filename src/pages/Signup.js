@@ -8,43 +8,48 @@ import Input from "../components/FormElements/Input";
 import Card from "../components/UIElements/Card";
 import { useForm } from "../hooks/useForm";
 import {
-  RULE_VALIDATOR_REQUIRED,
-  RULE_VALIDATOR_EMAIL
+  RULE_VALIDATOR_REQUIRE,
+  RULE_VALIDATOR_EMAIL,
+  RULE_VALIDATOR_MINLENGTH,
+  RULE_VALIDATOR_MATCH,
+  RULE_VALIDATOR_CONTAINSLOWER,
+  RULE_VALIDATOR_CONTAINSUPPER,
+  RULE_VALIDATOR_CONTAINSNUMBER,
 } from "../components/FormElements/validate";
 import { useHttpClient } from "../hooks/useHttpClient";
 import { useState } from "react";
 
-const Signup = props => {
+const Signup = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm({
     firstName: {
       value: "",
-      isValid: false
+      isValid: false,
     },
     lastName: {
       value: "",
-      isValid: false
+      isValid: false,
     },
     username: {
       value: "",
-      isValid: false
+      isValid: false,
     },
     email: {
       value: "",
-      isValid: false
+      isValid: false,
     },
     password: {
       value: "",
-      isValid: false
+      isValid: false,
     },
     confirm: {
       value: "",
-      isValid: false
+      isValid: false,
     },
     recaptcha: {
       value: null,
-      isValid: false
-    }
+      isValid: false,
+    },
   });
   const [errorMsg, setErrorMsg] = useState();
 
@@ -56,7 +61,7 @@ const Signup = props => {
     inputHandler("recaptcha", null, true);
   };
 
-  const onSignup = async event => {
+  const onSignup = async (event) => {
     event.preventDefault();
 
     if (formState.inputs.password.value === formState.inputs.confirm.value) {
@@ -66,7 +71,7 @@ const Signup = props => {
           lastName: formState.inputs.lastName.value,
           username: formState.inputs.username.value,
           email: formState.inputs.email.value,
-          password: formState.inputs.password.value
+          password: formState.inputs.password.value,
         };
 
         const response = await sendRequest(
@@ -100,7 +105,7 @@ const Signup = props => {
               label="First Name"
               value={formState.username}
               onInput={inputHandler}
-              rules={[RULE_VALIDATOR_REQUIRED]}
+              rules={[RULE_VALIDATOR_REQUIRE()]}
               errorMsg="Please enter your first name."
             />
             <Input
@@ -110,7 +115,7 @@ const Signup = props => {
               label="Last Name"
               value={formState.username}
               onInput={inputHandler}
-              rules={[RULE_VALIDATOR_REQUIRED]}
+              rules={[RULE_VALIDATOR_REQUIRE()]}
               errorMsg="Please enter your last name."
             />
             <Input
@@ -120,7 +125,7 @@ const Signup = props => {
               label="Username"
               value={formState.username}
               onInput={inputHandler}
-              rules={[RULE_VALIDATOR_REQUIRED]}
+              rules={[RULE_VALIDATOR_REQUIRE()]}
               errorMsg="Please enter your username."
             />
             <Input
@@ -130,8 +135,8 @@ const Signup = props => {
               label="Email"
               value={formState.email}
               onInput={inputHandler}
-              rules={[RULE_VALIDATOR_REQUIRED, RULE_VALIDATOR_EMAIL]}
-              errorMsg="Please enter your email."
+              rules={[RULE_VALIDATOR_REQUIRE(), RULE_VALIDATOR_EMAIL()]}
+              errorMsg="Please enter a valid email."
             />
             <Input
               id="password"
@@ -140,8 +145,14 @@ const Signup = props => {
               label="Password"
               value={formState.password}
               onInput={inputHandler}
-              rules={[RULE_VALIDATOR_REQUIRED]}
-              errorMsg="Please enter your password."
+              rules={[
+                RULE_VALIDATOR_REQUIRE(),
+                RULE_VALIDATOR_MINLENGTH(8),
+                RULE_VALIDATOR_CONTAINSLOWER(),
+                RULE_VALIDATOR_CONTAINSUPPER(),
+                RULE_VALIDATOR_CONTAINSNUMBER(),
+              ]}
+              errorMsg="Your password must contatin at least one lowercase letter, 1 uppercase letter, 1 number and at least 8 characters long."
             />
             <Input
               id="confirm"
@@ -150,8 +161,11 @@ const Signup = props => {
               label="Confirm Password"
               value={formState.confirm}
               onInput={inputHandler}
-              rules={[RULE_VALIDATOR_REQUIRED]}
-              errorMsg="Please confirm your password."
+              rules={[
+                RULE_VALIDATOR_REQUIRE(),
+                RULE_VALIDATOR_MATCH(formState.inputs.password.value),
+              ]}
+              errorMsg="Please confirm your password matches."
             />
             <Recaptcha
               sitekey="6LeASdEUAAAAAAYIgGK93we9F3Dcwpf_cGr8p3Gx"

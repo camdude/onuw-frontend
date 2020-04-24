@@ -6,7 +6,7 @@ import Button from "../components/FormElements/Button";
 import Input from "../components/FormElements/Input";
 import Card from "../components/UIElements/Card";
 import { useForm } from "../hooks/useForm";
-import { RULE_VALIDATOR_REQUIRED } from "../components/FormElements/validate";
+import { RULE_VALIDATOR_REQUIRE } from "../components/FormElements/validate";
 import { useHttpClient } from "../hooks/useHttpClient";
 import { AuthContext } from "../context/auth-context";
 
@@ -62,7 +62,7 @@ const Auth = props => {
               label="Email"
               value={formState.email}
               onInput={inputHandler}
-              rules={[RULE_VALIDATOR_REQUIRED]}
+              rules={[RULE_VALIDATOR_REQUIRE()]}
               errorMsg="Please enter your email."
             />
             <Input
@@ -72,7 +72,7 @@ const Auth = props => {
               label="Password"
               value={formState.password}
               onInput={inputHandler}
-              rules={[RULE_VALIDATOR_REQUIRED]}
+              rules={[RULE_VALIDATOR_REQUIRE()]}
               errorMsg="Please enter your password."
             />
             <Button type="submit" onClick={onLogin}>
