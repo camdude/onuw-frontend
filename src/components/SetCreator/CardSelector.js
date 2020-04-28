@@ -55,7 +55,7 @@ const cards = [
   "pickpocket",
   "priest",
   "prince",
-  "pyschic",
+  "psychic",
   "rapscallion",
   "rascal",
   "rendfield",
