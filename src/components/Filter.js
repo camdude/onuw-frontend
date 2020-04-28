@@ -130,6 +130,7 @@ const Filter = props => {
             onInput={inputHandler}
           />
         </div>
+          <p>{`${filteredList.length} of ${props.data.length} sets`}</p>
       </div>
       <br />
       {filteredList.map((set, index) => {

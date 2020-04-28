@@ -31,10 +31,12 @@ const SetList = () => {
         const responseData = await sendRequest(
           `${process.env.REACT_APP_API_URL}/api/roleset`
         );
+        console.log(responseData);
         let sortedRolesets = responseData.rolesets.sort((a, b) =>
           compare(a.players, b.players)
         );
         setloadedRolesets(sortedRolesets);
+        
       } catch (error) {
         console.log(error);
         console.log("Loading Backup");
