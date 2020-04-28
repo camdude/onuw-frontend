@@ -14,7 +14,7 @@ const Filter = props => {
       "daybreak",
       "alien",
       "vampire",
-      "super villians",
+      "super villains",
       "bonus"
     ]
   });
